@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="workLogger">
+<head>
+	<title>Work Logger</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+</head>
+<body ng-controller="mainController as vm">
+	<section>
+		<h1><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Log yo Postmates</h1>
+
+		<!-- <form method="POST" action="/table" ng-submit="submit()"> -->
+		<form method="POST" action="/table">
+		  <div class="form-group">
+		    <label for="name">Name</label>
+		    <input type="text" class="form-control" id="name" name="username" ng-model="vm.username" placeholder="Name" required>
+		  </div>
+		  <div class="form-group">
+		    <label for="date">Date</label>
+		    <input type="text" class="form-control" id="date" name="date" ng-model="vm.date" placeholder="Date" required>
+		  </div>
+		  <div class="form-group">
+		    <label for="timeLogged">Hours logged</label>
+		    <input type="text" class="form-control" id="timeLogged" name="hours" ng-model="vm.hours" placeholder="Nubmer of hours" required>
+		  </div>
+		  <div class="form-group">
+		    <label for="payout">Total Payout</label>
+		    <input type="text" class="form-control" id="payout" name="payout" ng-model="vm.payout" placeholder="Payout amount" required>
+		  </div>
+		  <div class="form-group">
+		    <label for="tips">Total tips earned</label>
+		    <input type="text" class="form-control" id="tips" name="tips" ng-model="vm.tips" placeholder="Tips" required>
+		  </div>
+		  <div class="form-group">
+		    <label for="totalIncome">Total Income</label>
+		    <input type="text" class="form-control" id="totalIncome" name="income" ng-model="vm.income" placeholder="Total Income" required>
+		  </div>
+		  <button type="submit" id='submit' class="btn btn-primary">Submit</button>
+		</form>
+		<br/>
+
+		<!-- <table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>User</th>
+					<th>Date</th>
+					<th>Time Logged</th>
+					<th>Payout</th>
+					<th>Tips</th>
+					<th>Total income</th>
+				</tr>
+			</thead>
+			<tr>
+				<th></th>
+				<th>{{ vm.username }}</th>
+				<td>{{ vm.date }}</td>
+				<td>{{ vm.time }}</td>
+				<td>{{ vm.payout }}</td>
+				<td>{{ vm.tips }}</td>
+				<td>{{ vm.income }}</td>
+			</tr>
+		</table> -->
+	</section>
+
+	<!-- Load jQuery and Bootstrap -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<!-- Load Angular -->
+	<script src="//code.angularjs.org/1.3.0-rc.2/angular.min.js"></script>
+  <script src="//code.angularjs.org/1.3.0-rc.2/angular-route.min.js"></script>
+  <script src="//code.angularjs.org/1.3.0-rc.2/angular-resource.min.js"></script>
+
+
+	<script src="javascripts/app.js"></script>
+	<script src="javascripts/controllers/mainController.js"></script>
+	<script src="javascripts/controllers/tableController.js"></script>
+
+</body>
+</html>

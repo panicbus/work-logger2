@@ -1,0 +1,20 @@
+{
+  "name": "work-logger2",
+  "version": "1.0.0",
+  "description": "Time logging app for Postmates",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ncrisafulli",
+  "license": "ISC",
+  "devDependencies": {
+    "body-parser": "^1.15.0",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.8"
+  },
+  "dependencies": {
+    "nodemon": "^1.9.1"
+  }
+}
