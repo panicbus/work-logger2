@@ -1,2 +1,2 @@
-# work-logger2
-ExpressJS driven time-logging database application
+# Work Logger
+ExpressJS-driven database application for logging time and income of work share jobs.
