@@ -23,11 +23,7 @@ module.exports = function(app) {
 				res.render('table');
 				console.log(entry);
 			})
-
-
 	});
-
-
 
 	app.get('/table/:id', function(req, res) {
 		console.log('request: ');

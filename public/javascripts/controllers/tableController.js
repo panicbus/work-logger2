@@ -4,8 +4,8 @@ app.controller('tableController', ['$scope', '$http', '$resource', function($sco
 
 		$http.get('/api/entries').then(function(response){
 
-			$scope.entries = response.data;
 			// return response.data;
+			$scope.entries = response.data;
 
 		});
 

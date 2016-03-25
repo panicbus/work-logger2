@@ -20,9 +20,9 @@
 			</tr>
 		</thead>
 		<tr ng-repeat="entry in entries">
-			<th>a</th>
+			<th></th>
 			<td>{{ entry.username }}</td>
-			<td>{{ entry.date }}</td>
+			<td>{{ entry.date | date:'MMM dd'}}</td>
 			<td>{{ entry.hours }}</td>
 			<td>{{ entry.payout }}</td>
 			<td>{{ entry.tips }}</td>

@@ -14,6 +14,7 @@ module.exports = function(app){
 		// mongoose model
 		Entries.find(function(err, entries){
 			if (err) throw err;
+
 			//comes back as json
 			res.send(entries);
 		});

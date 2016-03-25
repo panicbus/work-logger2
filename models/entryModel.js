@@ -5,10 +5,10 @@ var Schema = mongoose.Schema;
 var entrySchema = new Schema({
   username: String,
   date: { type: Date, required: true, default: Date.now },
-  hours: String,
-  payout: String,
-  tips: String,
-  income: String
+  hours: { type: Number },
+  payout: { type: Number },
+  tips: { type: Number },
+  income: { type: Number }
 });
 
 // defining and accessing the Mongoose model
