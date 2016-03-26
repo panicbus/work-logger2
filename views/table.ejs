@@ -19,10 +19,10 @@
 				<th>Total income</th>
 			</tr>
 		</thead>
-		<tr ng-repeat="entry in entries">
-			<th></th>
+		<tr ng-repeat="entry in entries | filter:query as filtered">
+			<th>{{ $index + 1 }}</th>
 			<td>{{ entry.username }}</td>
-			<td>{{ entry.date | date:'MMM dd, yyyy'}}</td>
+			<td>{{ entry.date | date:'EEE, MMM d, yyyy'}}</td>
 			<td>{{ entry.hours }}</td>
 			<td>{{ entry.payout }}</td>
 			<td>{{ entry.tips }}</td>
