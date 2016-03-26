@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 var entrySchema = new Schema({
   username: String,
-  date: { type: Date, required: true, default: Date.now },
+  date: { type: Date, required: 'Please enter year', default: Date.now },
   hours: { type: Number },
   payout: { type: Number },
   tips: { type: Number },

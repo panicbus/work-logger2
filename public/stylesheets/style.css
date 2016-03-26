@@ -14,6 +14,10 @@ section {
 a {
   color: #00B7FF;
 }
-td {
+/*td {
 	background: lightblue;
+}*/
+
+.delete-btn {
+	margin-right: 10px;
 }

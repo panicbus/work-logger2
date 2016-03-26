@@ -7,26 +7,28 @@
 </head>
 <body ng-controller="tableController as vm">
 
-	<table class="table table-bordered" ng-init="getEntries()">
+	<table class="table table-bordered table-striped" ng-init="getEntries()">
 		<thead>
 			<tr>
-				<th>#</th>
-				<th>Username</th>
-				<th>Date</th>
-				<th>Time Logged</th>
-				<th>Payout</th>
-				<th>Tips</th>
-				<th>Total income</th>
+				<th class="col-md-1">#</th>
+				<th class="col-md-2">Username</th>
+				<th class="col-md-2">Date</th>
+				<th class="col-md-1">Time Logged</th>
+				<th class="col-md-1">Payout</th>
+				<th class="col-md-1">Tips</th>
+				<th class="col-md-1">Total income</th>
+				<th class="col-md-2"></th>
 			</tr>
 		</thead>
-		<tr ng-repeat="entry in entries | filter:query as filtered">
-			<th>{{ $index + 1 }}</th>
-			<td>{{ entry.username }}</td>
-			<td>{{ entry.date | date:'EEE, MMM d, yyyy'}}</td>
-			<td>{{ entry.hours }}</td>
-			<td>{{ entry.payout }}</td>
-			<td>{{ entry.tips }}</td>
-			<td>{{ entry.income }}</td>
+		<tr ng-repeat="entry in entries">
+			<th class="col-md-1">{{ $index + 1 }}</th>
+			<td class="col-md-2">{{ entry.username }}</td>
+			<td class="col-md-2">{{ entry.date | date:'EEE, MMM d, yyyy'}}</td>
+			<td class="col-md-1">{{ entry.hours }}</td>
+			<td class="col-md-1">{{ entry.payout }}</td>
+			<td class="col-md-1">{{ entry.tips }}</td>
+			<td class="col-md-1">{{ entry.income }}</td>
+			<td class="col-md-2"><button type="submit" id='delete' class="btn btn-primary delete-btn">Delete</button><button type="submit" id='edit' class="btn btn-primary edit-btn">Edit</button></td>
 		</tr>
 	</table>
 
