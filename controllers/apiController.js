@@ -12,6 +12,7 @@ module.exports = function(app){
 	// GET ALL ENTRIES
 	app.get('/api/entries', function(req, res){
 		// mongoose model
+
 		Entries.find(function(err, entries){
 			if (err) throw err;
 
@@ -48,9 +49,9 @@ module.exports = function(app){
 	// POST A NEW ENTRY
 	app.post('/api/entry', function(req, res){
 		//if it already has an id it must be in there already
-		if (req.body.id) {
+		if (req.body._id) {
 			// so UPDATE IT
-			Entries.findByIdAndUpdate(req.body.id, {
+			Entries.findByIdAndUpdate(req.body._id, {
 				// the properties we're updating and the new values
 				username: req.body.username,
 			  date: req.body.date,
@@ -81,12 +82,23 @@ module.exports = function(app){
 		}
 	});
 
-	// DELETE AN ENTRY
-	app.delete('/api/entry', function(req, res){
-		Entries.findByIdAndRemove(req.body.id, function(err){
-			if (err) throw err;
-			res.send('Success!!')
-		})
-	});
+	// DELETE ENTRY with clicked entry param id
+	app.delete('/api/entry/:entry_id', function(req, res){
+		//		 .findByIdAndRemove would also work
+		Entries.remove({
+      _id : req.params.entry_id
+    }, function(err, entry) {
+      if (err)
+        res.send(err);
+
+      // get and return remaining entries
+      Entries.find(function(err, entries) {
+        if (err)
+          res.send(err)
+        res.json(entries);
+      });
+    });
+  });
+
 
 }

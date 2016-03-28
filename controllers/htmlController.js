@@ -41,10 +41,11 @@ module.exports = function(app) {
 	// POST
 	app.post('/table', urlencodedParser, function(req, res){
 		//if it already has an id it must be in there already
-		if (req.body.id) {
+		if (req.body._id) {
 			// so UPDATE IT
-			Entries.findByIdAndUpdate(req.body.id, {
+			Entries.findByIdAndUpdate(req.body._id, {
 				// the properties we're updating and the new values
+				_id: request.body._id,
 				username: req.body.username,
 			  date: req.body.date,
 			  hours: req.body.hours,
@@ -76,10 +77,20 @@ module.exports = function(app) {
 
 	// DELETE
 	app.delete('/table', function(req, res){
+		alert('delete! ran in htmlController')
 		Entries.findByIdAndRemove(req.body.id, function(err){
 			if (err) throw err;
 			res.send('Success!!')
+			console.log('Delete successful!!');
 		})
+		// Model.remove({ _id: req.body.id }, function(err) {
+	 //    if (!err) {
+	 //            message.type = 'notification!';
+	 //    }
+	 //    else {
+	 //            message.type = 'error';
+	 //    }
+		// });
 	});
 
 }

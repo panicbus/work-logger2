@@ -28,9 +28,13 @@
 			<td class="col-md-1">{{ entry.payout }}</td>
 			<td class="col-md-1">{{ entry.tips }}</td>
 			<td class="col-md-1">{{ entry.income }}</td>
-			<td class="col-md-2"><button type="submit" id='delete' class="btn btn-primary delete-btn">Delete</button><button type="submit" id='edit' class="btn btn-primary edit-btn">Edit</button></td>
+			<td class="col-md-2">
+				<button type="submit" id='delete' class="btn btn-primary delete-btn" ng-click="deleteEntry(entry._id)">Delete</button>
+				<button type="submit" id='edit' class="btn btn-primary edit-btn" ng-click="editEntry(entry._id)">Edit</button>
+			</td>
 		</tr>
 	</table>
+	<a href="/">Back to form</a>
 
 	<!-- Load jQuery and Bootstrap -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>

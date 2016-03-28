@@ -9,5 +9,4 @@ router.get('/table', function(req, res, next){
 	res.render('table', { title: 'table' })
 })
 
-
 module.exports = router;
