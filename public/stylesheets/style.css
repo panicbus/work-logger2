@@ -15,6 +15,23 @@ a {
   color: #00B7FF;
 }
 
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+.column-index {
+	width: 5% !important;
+}
+.column-body {
+	width: 15%;
+}
+.column-data {
+	width: 10% !important;
+}
+.column-btns {
+	width: 15% !important;
+}
+
 .delete-btn {
 	margin-right: 10px;
 }

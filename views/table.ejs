@@ -10,30 +10,55 @@
 	<table class="table table-bordered table-striped" ng-init="getEntries()">
 		<thead>
 			<tr>
-				<th class="col-md-1">#</th>
-				<th class="col-md-2">Username</th>
-				<th class="col-md-2">Date</th>
-				<th class="col-md-1">Time Logged</th>
-				<th class="col-md-1">Payout</th>
-				<th class="col-md-1">Tips</th>
-				<th class="col-md-1">Total income</th>
-				<th class="col-md-2"></th>
+				<th class="column-index">#</th>
+				<th class="column-body">Username</th>
+				<th class="column-data">Date</th>
+				<th class="column-data">Time Logged</th>
+				<th class="column-data">Payout</th>
+				<th class="column-data">Tips</th>
+				<th class="column-data">Total income</th>
+				<th class="column-btns"></th>
 			</tr>
 		</thead>
-		<tr ng-repeat="entry in entries">
-			<th class="col-md-1">{{ $index + 1 }}</th>
-			<td class="col-md-2">{{ entry.username }}</td>
-			<td class="col-md-2">{{ entry.date | date:'EEE, MMM d, yyyy'}}</td>
-			<td class="col-md-1">{{ entry.hours }}</td>
-			<td class="col-md-1">{{ entry.payout }}</td>
-			<td class="col-md-1">{{ entry.tips }}</td>
-			<td class="col-md-1">{{ entry.income }}</td>
-			<td class="col-md-2">
-				<button type="submit" id='delete' class="btn btn-primary delete-btn" ng-click="deleteEntry(entry._id)">Delete</button>
-				<button type="submit" id='edit' class="btn btn-primary edit-btn" ng-click="editEntry(entry._id)">Edit</button>
+		<tr ng-repeat="entry in entries" ng-cloak>
+			<th class="column-index">{{ $index + 1 }}</th>
+			<td class="column-body">
+				<span ng-show="!editMode[$index]">{{ entry.username }}</span>
+				<input ng-show="editMode[$index]" type="text" ng-model="entry.username"/>
+			</td>
+			<td class="column-data">
+				<span ng-show="!editMode[$index]">{{ entry.date | date:'EEE, MMM d, yyyy'}}</span>
+				<input ng-show="editMode[$index]" value="{{entry.date | date:'M-d-yy'}}" ng-model="entry.date"/>
+			</td>
+			<td class="column-data">
+				<span ng-show="!editMode[$index]">{{ entry.hours }}</span>
+				<input ng-show="editMode[$index]" type="text" ng-model="entry.hours"/>
+			</td>
+			<td class="column-data">
+				<span ng-show="!editMode[$index]">{{ entry.payout }}</span>
+				<input ng-show="editMode[$index]" type="text" ng-model="entry.payout"/>
+			</td>
+			<td class="column-data">
+				<span ng-show="!editMode[$index]">{{ entry.tips }}</span>
+				<input ng-show="editMode[$index]" type="text" ng-model="entry.tips"/>
+			</td>
+			<td class="column-data">
+				<span ng-show="!editMode[$index]">{{ entry.income }}</span>
+				<input ng-show="editMode[$index]" type="text" ng-model="entry.income"/>
+			</td>
+			<td class="column-btns">
+
+				<button ng-show="!editMode[$index]" type="submit" class="btn btn-primary delete-btn" ng-click="deleteEntry(entry._id)">Delete</button>
+				<button ng-show="!editMode[$index]" type="submit" class="btn btn-primary edit-btn" ng-click="editEntry($index)">Edit</button>
+
+				<button ng-show="editMode[$index]" type="submit" class="btn btn-secondary edit-btn" ng-click="saveUpdate(entry._id, $index, entry)">Update</button>
+				<button ng-show="editMode[$index]" type="submit" class="btn btn-secondary edit-btn" ng-click="cancelUpdate($index)">Cancel</button>
+
 			</td>
 		</tr>
 	</table>
+	<div ng-if="entry == 'undefined'" class="no-entries">You have no entries. Please add some.</div>
+
 	<a href="/">Back to form</a>
 
 	<!-- Load jQuery and Bootstrap -->

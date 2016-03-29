@@ -1,3 +1,4 @@
+//recent table controller with edit stuff
 app.controller('tableController', ['$scope', '$http', '$resource', function($scope, $http, $resource){
 
 	$scope.getEntries = function(){
@@ -9,10 +10,50 @@ app.controller('tableController', ['$scope', '$http', '$resource', function($sco
 		alert('There was a problem getting your entry: ' + error.message);
 	};
 
+	///////// EDIT entry /////////////
+	// stash to put the editMode items in
+	$scope.editMode = [];
+	$scope.editEntry = function(index){
+		// put the original entry into the editMode arr using angular.copy
+		// this evaluates editMode to true & holds a copy of the original value in case we press cancel
+		$scope.editMode[index] = angular.copy($scope.entries[index]);
+	}
+
+	$scope.cancelUpdate = function(index){
+		// bring in the copy of the original value & exit editMode
+		$scope.entries[index] = angular.copy($scope.editMode[index]);
+		$scope.editMode[index] = false;
+	}
+
+	////////////////// SAVE UPDATE /////////////
+	// take the data from the view (entry is the form data)
+	$scope.saveUpdate = function(id, index, entry){
+		// and pass it into the post request
+		$http.post('/api/entry/' + id, {
+				username: entry.username,
+				date: entry.date,
+				hours: entry.hours,
+				income: entry.income,
+				payout: entry.payout,
+				tips: entry.tips
+			})
+			.then(function(res, status){
+				console.log(res.data);
+			})
+			.catch(function(err){
+				console.log('There was a problem saving your entry: ' + err);
+			});
+		$scope.editMode[index] = false;
+		// then update page with remaining entries
+	  $http.get('/api/entries').then(function(response){
+			$scope.entries = response.data;
+		});
+	}
 
 	// DELETE entry
   $scope.deleteEntry = function(id) {
     // delete entry from DB using clicked listing's id
+    console.log(id);
     $http.delete('/api/entry/' + id)
       .success(function(data) {
           $scope.entry = data;
@@ -24,7 +65,6 @@ app.controller('tableController', ['$scope', '$http', '$resource', function($sco
     $http.get('/api/entries').then(function(response){
 			$scope.entries = response.data;
 		});
-
 	};
 
 }]);
