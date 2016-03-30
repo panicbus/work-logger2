@@ -42,7 +42,8 @@ app.controller('tableController', ['$scope', '$http', '$resource', function($sco
 				console.log(res.data);
 			})
 			.catch(function(err){
-				console.log('There was a problem saving your entry: ' + err);
+				alert('There was a problem saving your entry: ' + err.data);
+				console.log('There was a problem saving your entry: ' + err.data);
 			});
 		$scope.editMode[index] = false;
 		// then update page with remaining entries

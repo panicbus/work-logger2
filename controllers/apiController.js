@@ -53,7 +53,7 @@ module.exports = function(app){
 		if (!req.body.date)
 	  return res.status(400).send('date must be provided');
 		if (!req.body.hours)
-	  return res.status(400).send('hours must be provided');
+	  return res.status(400).send('hours field can\'t be blank');
 		if (!req.body.payout)
 	  return res.status(400).send('payout must be provided');
 		if (!req.body.tips)
