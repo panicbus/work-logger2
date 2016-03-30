@@ -17,6 +17,7 @@ app.controller('tableController', ['$scope', '$http', '$resource', function($sco
 		// put the original entry into the editMode arr using angular.copy
 		// this evaluates editMode to true & holds a copy of the original value in case we press cancel
 		$scope.editMode[index] = angular.copy($scope.entries[index]);
+
 	}
 
 	$scope.cancelUpdate = function(index){

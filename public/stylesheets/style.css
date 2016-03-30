@@ -18,20 +18,27 @@ a {
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none !important;
 }
-
+input {
+  padding: 5px;
+  width: 100%;
+}
 .column-index {
-	width: 5% !important;
+	width: 2%;
 }
 .column-body {
 	width: 15%;
 }
 .column-data {
-	width: 10% !important;
+	width: 10%;
 }
 .column-btns {
-	width: 15% !important;
+	width: 15%;
 }
 
 .delete-btn {
 	margin-right: 10px;
+}
+
+.back-link {
+	padding-left: 15px;
 }

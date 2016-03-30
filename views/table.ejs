@@ -22,27 +22,28 @@
 		</thead>
 		<tr ng-repeat="entry in entries" ng-cloak>
 			<th class="column-index">{{ $index + 1 }}</th>
-			<td class="column-body">
+			<!-- ng-click editEntry on tds to open the edit function when clicking on the body -->
+			<td class="column-body" ng-click="editEntry($index)">
 				<span ng-show="!editMode[$index]">{{ entry.username }}</span>
 				<input ng-show="editMode[$index]" type="text" ng-model="entry.username"/>
 			</td>
-			<td class="column-data">
+			<td class="column-data" ng-click="editEntry($index)">
 				<span ng-show="!editMode[$index]">{{ entry.date | date:'EEE, MMM d, yyyy'}}</span>
-				<input ng-show="editMode[$index]" value="{{entry.date | date:'M-d-yy'}}" ng-model="entry.date"/>
+				<input ng-show="editMode[$index]" value="{{entry.date | date:'M-d-yy'}}"/>
 			</td>
-			<td class="column-data">
+			<td class="column-data" ng-click="editEntry($index)">
 				<span ng-show="!editMode[$index]">{{ entry.hours }}</span>
 				<input ng-show="editMode[$index]" type="text" ng-model="entry.hours"/>
 			</td>
-			<td class="column-data">
+			<td class="column-data" ng-click="editEntry($index)">
 				<span ng-show="!editMode[$index]">{{ entry.payout }}</span>
 				<input ng-show="editMode[$index]" type="text" ng-model="entry.payout"/>
 			</td>
-			<td class="column-data">
+			<td class="column-data" ng-click="editEntry($index)">
 				<span ng-show="!editMode[$index]">{{ entry.tips }}</span>
 				<input ng-show="editMode[$index]" type="text" ng-model="entry.tips"/>
 			</td>
-			<td class="column-data">
+			<td class="column-data" ng-click="editEntry($index)">
 				<span ng-show="!editMode[$index]">{{ entry.income }}</span>
 				<input ng-show="editMode[$index]" type="text" ng-model="entry.income"/>
 			</td>
@@ -59,7 +60,7 @@
 	</table>
 	<div ng-if="entry == 'undefined'" class="no-entries">You have no entries. Please add some.</div>
 
-	<a href="/">Back to form</a>
+	<a href="/" class="back-link">Back to form</a>
 
 	<!-- Load jQuery and Bootstrap -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>

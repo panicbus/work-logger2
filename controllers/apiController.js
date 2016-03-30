@@ -97,6 +97,7 @@ module.exports = function(app){
 
 	// DELETE ENTRY with clicked entry param id
 	app.delete('/api/entry/:entry_id', function(req, res){
+				// .remove would also work
 		Entries.findByIdAndRemove({
       _id : req.params.entry_id
     }, function(err, entry) {
