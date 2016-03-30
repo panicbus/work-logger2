@@ -7,6 +7,8 @@
 </head>
 <body ng-controller="tableController as vm">
 
+	<%include ./partials/header %>
+
 	<table class="table table-bordered table-striped" ng-init="getEntries()">
 		<thead>
 			<tr>
@@ -22,14 +24,14 @@
 		</thead>
 		<tr ng-repeat="entry in entries" ng-cloak>
 			<th class="column-index">{{ $index + 1 }}</th>
-			<!-- ng-click editEntry on tds to open the edit function when clicking on the body -->
+			<!-- ng-click editEntry on tds to open the edit function when clicking on the cell -->
 			<td class="column-body" ng-click="editEntry($index)">
 				<span ng-show="!editMode[$index]">{{ entry.username }}</span>
 				<input ng-show="editMode[$index]" type="text" ng-model="entry.username"/>
 			</td>
 			<td class="column-data" ng-click="editEntry($index)">
 				<span ng-show="!editMode[$index]">{{ entry.date | date:'EEE, MMM d, yyyy'}}</span>
-				<input ng-show="editMode[$index]" value="{{entry.date | date:'M-d-yy'}}"/>
+				<input ng-show="editMode[$index]" value="{{entry.date | date:'yyyy-MM-dd'}}" ng-model="entry.date"/>
 			</td>
 			<td class="column-data" ng-click="editEntry($index)">
 				<span ng-show="!editMode[$index]">{{ entry.hours }}</span>
@@ -61,6 +63,8 @@
 	<div ng-if="entry == 'undefined'" class="no-entries">You have no entries. Please add some.</div>
 
 	<a href="/" class="back-link">Back to form</a>
+
+	<%include ./partials/footer %>
 
 	<!-- Load jQuery and Bootstrap -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>

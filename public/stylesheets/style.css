@@ -8,7 +8,7 @@ body {
 }
 
 section {
-	padding: 50px;
+	padding: 15px 50px 30px;
 }
 
 a {
@@ -22,6 +22,17 @@ input {
   padding: 5px;
   width: 100%;
 }
+
+.navbar {
+	border-radius: 0 !important;
+	margin-bottom: 0 !important;
+	font-size: 20px;
+}
+.navbar-right {
+	margin-right: 0 !important;
+	padding-right: 15px;
+}
+
 .column-index {
 	width: 2%;
 }

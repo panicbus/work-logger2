@@ -3,11 +3,7 @@ var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 module.exports = function(app) {
-
-	// app.get('/', function(req, res) {
-	// 	res.render('index');
-	// });
-
+	// populate the main table page with values from the DB model request
 	app.get('/table', function(req, res) {
 		Entries.findById(req.body.id, {
 				// the properties we're updating and the new values
@@ -38,59 +34,20 @@ module.exports = function(app) {
 		});
 	});
 
-	// POST
+	// POST from form
 	app.post('/table', urlencodedParser, function(req, res){
-		//if it already has an id it must be in there already
-		if (req.body._id) {
-			// so UPDATE IT
-			Entries.findByIdAndUpdate(req.body._id, {
-				// the properties we're updating and the new values
-				_id: request.body._id,
-				username: req.body.username,
-			  date: req.body.date,
-			  hours: req.body.hours,
-			  payout: req.body.payout,
-			  tips: req.body.tips,
-			  income: req.body.income
-			}, function(err, entry){
-				if (err) throw err;
-				res.send('Success!');
-			})
-		}
-		else {
-			// if there is no id, CREATE IT
-			var newEntry = Entries({
-				username: req.body.username,
-			  date: req.body.date,
-			  hours: req.body.hours,
-			  payout: req.body.payout,
-			  tips: req.body.tips,
-			  income: req.body.income
-			});
-			// and save to Mongo
-			newEntry.save(function(err){
-				if (err) throw err;
-				res.render('table');
-			});
-		}
-	});
-
-	// DELETE
-	app.delete('/table', function(req, res){
-		alert('delete! ran in htmlController')
-		Entries.findByIdAndRemove(req.body.id, function(err){
+		var newEntry = Entries({
+			username: req.body.username,
+		  date: req.body.date,
+		  hours: req.body.hours,
+		  payout: req.body.payout,
+		  tips: req.body.tips,
+		  income: req.body.income
+		});
+		// and save to Mongo
+		newEntry.save(function(err){
 			if (err) throw err;
-			res.send('Success!!')
-			console.log('Delete successful!!');
-		})
-		// Model.remove({ _id: req.body.id }, function(err) {
-	 //    if (!err) {
-	 //            message.type = 'notification!';
-	 //    }
-	 //    else {
-	 //            message.type = 'error';
-	 //    }
-		// });
+			res.render('table');
+		});
 	});
-
 }
