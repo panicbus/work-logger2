@@ -60,3 +60,7 @@ input {
 .right-option {
 	float: right;
 }
+.login-message {
+	font-size: 25px;
+	padding-top: 100px;
+}

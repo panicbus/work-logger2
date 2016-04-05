@@ -1,15 +1,15 @@
 <nav class="navbar navbar-default" id="header">
 	<span class="navbar-text navbar-left navbar-brand" href="#">Work Logger</span>
-      <span class="navbar-text navbar-right">
+    <span class="navbar-text navbar-right">
 
-        <% if(!currentUser){ %>
-          <a href="/login">Log in</a> | <a href="/register">Sign Up</a>
-        <% } else {%>
-          Signed in as <%=currentUser.username%> |
-          <a href="/logout">Logout</a>
-        <% } %> | <a href="" class="navbar-link" data-toggle="modal" data-target="#aboutModal">About</a>
+      <% if(!currentUser){ %>
+        <a href="/login">Log in</a> | <a href="/register">Sign Up</a>
+      <% } else {%>
+        Signed in as <%=currentUser.username%> |
+        <a href="/logout">Logout</a>
+      <% } %> | <a href="" class="navbar-link" data-toggle="modal" data-target="#aboutModal">About</a>
 
-      </span>
+    </span>
 </nav>
 
 

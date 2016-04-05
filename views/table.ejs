@@ -9,61 +9,64 @@
 
 	<%include ./partials/header %>
 
-	<table class="table table-bordered table-striped" ng-init="getEntries()">
-		<thead>
-			<tr>
-				<th class="column-index">#</th>
-				<th class="column-body">Username</th>
-				<th class="column-data">Date</th>
-				<th class="column-data">Time Logged</th>
-				<th class="column-data">Payout</th>
-				<th class="column-data">Tips</th>
-				<th class="column-data">Total income</th>
-				<th class="column-btns"></th>
+	<% if(!currentUser){ %>
+		<center class="login-message">You need you be logged in to view your work log. Please <a href="/login">log in</a>.</center>
+  <% } else {%>
+		<table class="table table-bordered table-striped" ng-init="getEntries()">
+			<thead>
+				<tr>
+					<th class="column-index">#</th>
+					<th class="column-body">Username</th>
+					<th class="column-data">Date</th>
+					<th class="column-data">Time Logged</th>
+					<th class="column-data">Payout</th>
+					<th class="column-data">Tips</th>
+					<th class="column-data">Total income</th>
+					<th class="column-btns"></th>
+				</tr>
+			</thead>
+			<tr ng-repeat="entry in entries" ng-cloak>
+				<th class="column-index">{{ $index + 1 }}</th>
+				<!-- ng-click editEntry on tds to open the edit function when clicking on the cell -->
+				<td class="column-body" ng-click="editEntry($index)">
+					<span ng-show="!editMode[$index]">{{ entry.username }}</span>
+					<input ng-show="editMode[$index]" type="text" ng-model="entry.username"/>
+				</td>
+				<td class="column-data" ng-click="editEntry($index)">
+					<span ng-show="!editMode[$index]">{{ entry.date | date:'EEE, MMM d, yyyy'}}</span>
+					<input ng-show="editMode[$index]" value="{{entry.date | date:'yyyy-MM-dd'}}" ng-model="entry.date"/>
+				</td>
+				<td class="column-data" ng-click="editEntry($index)">
+					<span ng-show="!editMode[$index]">{{ entry.hours }}</span>
+					<input ng-show="editMode[$index]" type="text" ng-model="entry.hours"/>
+				</td>
+				<td class="column-data" ng-click="editEntry($index)">
+					<span ng-show="!editMode[$index]">{{ entry.payout }}</span>
+					<input ng-show="editMode[$index]" type="text" ng-model="entry.payout"/>
+				</td>
+				<td class="column-data" ng-click="editEntry($index)">
+					<span ng-show="!editMode[$index]">{{ entry.tips }}</span>
+					<input ng-show="editMode[$index]" type="text" ng-model="entry.tips"/>
+				</td>
+				<td class="column-data" ng-click="editEntry($index)">
+					<span ng-show="!editMode[$index]">{{ entry.income }}</span>
+					<input ng-show="editMode[$index]" type="text" ng-model="entry.income"/>
+				</td>
+				<td class="column-btns">
+
+					<button ng-show="!editMode[$index]" type="submit" class="btn btn-primary delete-btn" ng-click="deleteEntry(entry._id)">Delete</button>
+					<button ng-show="!editMode[$index]" type="submit" class="btn btn-primary edit-btn" ng-click="editEntry($index)">Edit</button>
+
+					<button ng-show="editMode[$index]" type="submit" class="btn btn-secondary edit-btn" ng-click="saveUpdate(entry._id, $index, entry)">Update</button>
+					<button ng-show="editMode[$index]" type="submit" class="btn btn-secondary edit-btn" ng-click="cancelUpdate($index)">Cancel</button>
+
+				</td>
 			</tr>
-		</thead>
-		<tr ng-repeat="entry in entries" ng-cloak>
-			<th class="column-index">{{ $index + 1 }}</th>
-			<!-- ng-click editEntry on tds to open the edit function when clicking on the cell -->
-			<td class="column-body" ng-click="editEntry($index)">
-				<span ng-show="!editMode[$index]">{{ entry.username }}</span>
-				<input ng-show="editMode[$index]" type="text" ng-model="entry.username"/>
-			</td>
-			<td class="column-data" ng-click="editEntry($index)">
-				<span ng-show="!editMode[$index]">{{ entry.date | date:'EEE, MMM d, yyyy'}}</span>
-				<input ng-show="editMode[$index]" value="{{entry.date | date:'yyyy-MM-dd'}}" ng-model="entry.date"/>
-			</td>
-			<td class="column-data" ng-click="editEntry($index)">
-				<span ng-show="!editMode[$index]">{{ entry.hours }}</span>
-				<input ng-show="editMode[$index]" type="text" ng-model="entry.hours"/>
-			</td>
-			<td class="column-data" ng-click="editEntry($index)">
-				<span ng-show="!editMode[$index]">{{ entry.payout }}</span>
-				<input ng-show="editMode[$index]" type="text" ng-model="entry.payout"/>
-			</td>
-			<td class="column-data" ng-click="editEntry($index)">
-				<span ng-show="!editMode[$index]">{{ entry.tips }}</span>
-				<input ng-show="editMode[$index]" type="text" ng-model="entry.tips"/>
-			</td>
-			<td class="column-data" ng-click="editEntry($index)">
-				<span ng-show="!editMode[$index]">{{ entry.income }}</span>
-				<input ng-show="editMode[$index]" type="text" ng-model="entry.income"/>
-			</td>
-			<td class="column-btns">
+		</table>
+		<div ng-if="entry == 'undefined'" class="no-entries">You have no entries. Please add some.</div>
 
-				<button ng-show="!editMode[$index]" type="submit" class="btn btn-primary delete-btn" ng-click="deleteEntry(entry._id)">Delete</button>
-				<button ng-show="!editMode[$index]" type="submit" class="btn btn-primary edit-btn" ng-click="editEntry($index)">Edit</button>
-
-				<button ng-show="editMode[$index]" type="submit" class="btn btn-secondary edit-btn" ng-click="saveUpdate(entry._id, $index, entry)">Update</button>
-				<button ng-show="editMode[$index]" type="submit" class="btn btn-secondary edit-btn" ng-click="cancelUpdate($index)">Cancel</button>
-
-			</td>
-		</tr>
-	</table>
-	<div ng-if="entry == 'undefined'" class="no-entries">You have no entries. Please add some.</div>
-
-	<a href="/" class="back-link">Back to form</a>
-
+		<a href="/" class="back-link">Back to form</a>
+	<% } %>
 	<%include ./partials/footer %>
 
 	<!-- Load jQuery and Bootstrap -->
