@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
 <%include ../partials/header %>
 
 <section>
@@ -5,10 +13,10 @@
 	<h1>Sign-in</h1>
 		<form action='/login' method='POST'>
 			<div class="form-group">
-				<div class="col-sm-offset-1 col-sm-10">
+				<div class="col-sm-10">
 					<input type='text' class='form-contol' name='username' placeholder='username'>
 				</div>
-				<div class="col-sm-offset-1 col-sm-10">
+				<div class="col-sm-10">
 					<input type='password' class='form-contol' name='password' placeholder='password'>
 				</div>
 				<div class="col-sm-12">
@@ -20,3 +28,6 @@
 </section>
 
 <%include ../partials/footer %>
+
+</body>
+</html>

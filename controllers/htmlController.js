@@ -23,7 +23,6 @@ module.exports = function(app) {
 
 	app.get('/table/:id', function(req, res) {
 		console.log('request: ');
-		console.log(req);
 		res.render('table', {
 			id: req.params.id,
 			date: req.params.date,

@@ -53,3 +53,10 @@ input {
 .back-link {
 	padding-left: 15px;
 }
+.to-table {
+	font-size: 20px;
+	margin-top: -35px;
+}
+.right-option {
+	float: right;
+}
