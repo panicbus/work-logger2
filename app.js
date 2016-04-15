@@ -18,12 +18,14 @@ var	User 			      = require('./models/user');
 var config 					= require('./config');
 		setupController = require('./controllers/setupController'),
 		apiController 	= require('./controllers/apiController'),
-		htmlController 	= require('./controllers/htmlController');
+		htmlController 	= require('./controllers/htmlController'),
+		userController	= require('./controllers/userController');
 
 var port = process.env.PORT || 3000;
 
 var	indexRoutes = require('./routes/index'),
 		userRoutes 	= require('./routes/users');
+
 
 // for views
 app.set('view engine', 'ejs');
@@ -61,42 +63,6 @@ app.use(function(req, res, next){
     next();
 });
 
-// app.post('/login', function(req, res){
-// 		var username = req.body.userName;
-// 		console.log('userName is ' + username)
-// 		User.find({ username: username }, function(err, user){
-// 			if (err) throw err;
-// 			console.log('function user._id is ' + user[0]._id)
-// 	    res.redirect('/users/' + user[0]._id);
-// 		});
-// });
-
-// app.use(function(req, res, next){
-// 	console.log('current userz: ' + req);
-// 	console.log('current userzz: ' + req.id);
-// 	console.log('current req only *** app.js: ' + req.user);
-//   res.locals.currentUser = req.user;
-//   // res.locals.error = req.flash('error');
-//   // res.locals.success = req.flash('success');
-//   next();
-// });
-
-
-// app.use(function(req, res, next){
-// 	var username = req.body.userName;
-// 	User.find({ username: username }, function(err, user){
-// 			if (err) throw err;
-// 	  res.locals.currentUser = req.user;
-//   next();
-// 	});
-// 	// console.log('current user: ' + req._id);
-// 	// console.log('current req only *** app.js: ' + req);
-//   // res.locals.error = req.flash('error');
-//   // res.locals.success = req.flash('success');
-// });
-
-
-
 app.use(indexRoutes);
 app.use(userRoutes);
 
@@ -115,13 +81,14 @@ mongoose.connect(config.getDbConnectionString());
 htmlController(app);
 setupController(app);
 apiController(app);
+userController(app);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
+// app.use(function(req, res, next) {
+//   var err = new Error('Not Found');
+//   err.status = 404;
+//   next(err);
+// });
 
 
 app.listen(port);

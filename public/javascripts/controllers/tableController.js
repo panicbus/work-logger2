@@ -2,13 +2,27 @@
 app.controller('tableController', ['$scope', '$http', '$resource', function($scope, $http, $resource){
 
 	$scope.getEntries = function(){
-		$http.get('/api/entries').then(function(response){
+
+		// $http.get('/api/entries').then(function(response){
+		$http.get('/api/entries/:user_id').then(function(response){
 			$scope.entries = response.data;
 		});
 
 	}, function(error){
 		alert('There was a problem getting your entry: ' + error.message);
 	};
+
+
+	$scope.getUserEntries = function(){
+		$http.get('/api/user/:_id').then(function(response){
+			$scope.entries = response.data;
+		});
+
+	}, function(error){
+		alert('There was a problem getting your entry: ' + error.message);
+	};
+
+
 
 	///////// EDIT entry /////////////
 	// stash to put the editMode items in

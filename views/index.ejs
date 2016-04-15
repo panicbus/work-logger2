@@ -12,30 +12,27 @@
 	<section>
 		<h1><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Log yo Postmates</h1><div class="to-table navbar-link right-option"><a href="/table">View your log</a></div>
 
-		<form method="POST" action="/table">
-		  <div class="form-group">
-		    <label for="name">Name</label>
-		    <input type="text" class="form-control" id="name" name="username" ng-model="vm.username" placeholder="Name" required>
-		  </div>
+		<!-- logout is failing because of the currentUser thing -->
+		<form method="POST" action="/table/<%=currentUser._id%>">
 		  <div class="form-group">
 		    <label for="date">Date</label>
-		    <input type="text" class="form-control" id="date" name="date" ng-model="vm.date" placeholder="Date" required>
+		    <input type="text" class="form-control" id="date" name="date" ng-model="vm.date" placeholder="Date">
 		  </div>
 		  <div class="form-group">
 		    <label for="timeLogged">Hours logged</label>
-		    <input type="text" class="form-control" id="timeLogged" name="hours" ng-model="vm.hours" placeholder="Nubmer of hours" required>
+		    <input type="text" class="form-control" id="timeLogged" name="hours" ng-model="vm.hours" placeholder="Nubmer of hours">
 		  </div>
 		  <div class="form-group">
 		    <label for="payout">Total Payout</label>
-		    <input type="text" class="form-control" id="payout" name="payout" ng-model="vm.payout" placeholder="Payout amount" required>
+		    <input type="text" class="form-control" id="payout" name="payout" ng-model="vm.payout" placeholder="Payout amount">
 		  </div>
 		  <div class="form-group">
 		    <label for="tips">Total tips earned</label>
-		    <input type="text" class="form-control" id="tips" name="tips" ng-model="vm.tips" placeholder="Tips" required>
+		    <input type="text" class="form-control" id="tips" name="tips" ng-model="vm.tips" placeholder="Tips">
 		  </div>
 		  <div class="form-group">
 		    <label for="totalIncome">Total Income</label>
-		    <input type="text" class="form-control" id="totalIncome" name="income" ng-model="vm.income" placeholder="Total Income" required>
+		    <input type="text" class="form-control" id="totalIncome" name="income" ng-model="vm.income" placeholder="Total Income">
 		  </div>
 		  <button type="submit" id='submit' ng-model="newEntry" class="btn btn-primary">Submit</button>
 		</form>

@@ -1,4 +1,5 @@
 var Entries = require('../models/entryModel');
+var Users = require('../models/user');
 var bodyParser = require('body-parser');
 
 // export from this js file endpoints
@@ -22,18 +23,17 @@ module.exports = function(app){
 	// GET ALL THE ENTRIES FOR A PARTICULAR USER (OR WHATEVER)
 	// the :username means parameter than can change on the url
 	// you get that value with req.params
-	app.get('/api/entries/:username', function(req, res){
+	app.get('/api/entries/:user_id', function(req, res){
 
 		// mongoose model
-		Entries.find({ username: req.params.username }, function(err, entries){
+		Entries.find({ _id: req.params.user_id }, function(err, entries){
 			if (err) throw err;
 			//comes back as json
 			res.send(entries);
 		});
 	});
 
-
-	// GET ALL THE ENTRIES FOR AN ID
+	// GET THE ENTRY PER THE ENTRY ID
 	app.get('/api/entry/:id', function(req, res){
 		// mongoose provides the findById method
 		// will be a single response so entry (singular)
@@ -43,13 +43,15 @@ module.exports = function(app){
 		});
 	});
 
+
+
 	// UPDATE ENTRY
 	app.post('/api/entry/:entry_id', function(req, res){
 		// error cases
 		if (!req.params.entry_id)
 	  return res.status(400).send('an entry_id must be provided');
-		if (!req.body.username)
-	  return res.status(400).send('username must be provided');
+		// if (!req.body.username)
+	 //  return res.status(400).send('username must be provided');
 		if (!req.body.date)
 	  return res.status(400).send('date must be provided');
 		if (!req.body.hours)
@@ -62,7 +64,7 @@ module.exports = function(app){
 	  return res.status(400).send('income must be provided');
 
 	  var updateData = {
-	    username: req.body.username,
+	    // username: req.body.username,
 		  date: req.body.date,
 		  hours: req.body.hours,
 		  payout: req.body.payout,
@@ -78,21 +80,25 @@ module.exports = function(app){
 	});
 
 	// CREATE NEW ENTRY
-	app.post('/api/entry', function(req, res){
-		var newEntry = Entries({
-			username: req.body.username,
-		  date: req.body.date,
-		  hours: req.body.hours,
-		  payout: req.body.payout,
-		  tips: req.body.tips,
-		  income: req.body.income
-		});
-		// and save to Mongo
-		newEntry.save(function(err){
-			if (err) throw err;
-			res.send('Success!');
-		});
-	});
+	// app.post('/api/entry', function(req, res){
+	// 	var newEntry = Entries({
+	// 		// username: req.body.username,
+	// 	  date: req.body.date,
+	// 	  hours: req.body.hours,
+	// 	  payout: req.body.payout,
+	// 	  tips: req.body.tips,
+	// 	  income: req.body.income,
+	// 	  id: req.body.id,
+	// 	  user_id: req.body.id
+	// 	});
+	// 	console.log('AKBAR');
+	// 	console.log(req.body);
+	// 	// and save to Mongo
+	// 	newEntry.save(function(err){
+	// 		if (err) throw err;
+	// 		res.send('Success!');
+	// 	});
+	// });
 
 
 	// DELETE ENTRY with clicked entry param id
@@ -107,18 +113,22 @@ module.exports = function(app){
         res.send(err);
       }
       else {
-      // get and return remaining entries
-      Entries.find(function(err, entries) {
-        if (err) {
-          res.send(err)
-        }
-        else {
-        // return
-	        res.json(entries);
-	      }
-      });
-    } // end first else
+	      // get and return remaining entries
+	      Entries.find(function(err, entries) {
+	        if (err) {
+	          res.send(err)
+	        }
+	        else {
+	          res.json(entries);
+		      }
+	      });
+	    } // end first else
     });
   });
 
+
+	/// POST from main Index form
+
+
 }
+

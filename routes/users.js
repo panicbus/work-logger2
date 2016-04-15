@@ -7,35 +7,20 @@ var express 					= require('express'),
 var authMiddleware    = passport.authenticate('local', {failureRedirect:'/login'});
 
 
-router.get("/users", function(req, res) {
-    res.render("index");
+router.get('/users', function(req, res) {
+    res.render('index');
 });
 
-// router.get('/users/:id', function(req, res){
-// 	console.log('params is: ' + req.params.id);
-// 	console.log(req.params);
-// 	User.findById({ _id: req.params.id }, function(err, user){
-// 			if (err) throw err;
-// 			// res.send(user)
-// 		});
-// 	// var user = req.body._id
-// 	console.log('route users req.user is: ' + req.body);
-//   res.redirect('/table/' + req.params.id);
-
-// })
-
-
-
-router.get("/users/:id", isLoggedIn, function(req, res) {
+router.get('/users/:id', isLoggedIn, function(req, res) {
 		console.log(req.params.id)
-    User.findById({ _id: req.params.id }).populate('table').exec(function(err, user) {
+    User.findById({ _id: req.params.id }).populate('../userController').exec(function(err, user) {
 			if(err){
 				console.log(':user_id err ' + err);
 			}
 			else{
-				console.log("found user: " + user.id);
-				res.render("./table", {user: user});
-				// res.redirect("/table", req.params.id);
+				console.log('found user: ' + user.id);
+				// res.render('./table', {user: user});
+				res.render('./index', {user: user});
 			}
    });
 });

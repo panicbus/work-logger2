@@ -26,18 +26,17 @@ router.post('/register', function(req, res) {
         if(err){
             console.log('Failed to register user...');
             console.log(err);
-            // req.flash("error", err.message);
+            req.flash('error', err.message);
             return res.render('index');
         }
         else{
             console.log('user registered successfully...');
             console.log('user.username: ' + user.username);
-            // req.flash("success", "Added " + user.username);
+            req.flash('success', 'Added ' + user.username);
             res.redirect('/');
         }
     });
 });
-
 
 // LOGIN
 router.get('/login', function(req, res) {
@@ -49,16 +48,6 @@ router.post('/login', authMiddleware, function(req, res){
 });
 
 
-// router.post('/login', function(req, res){
-// 	console.log('oy vey------------' + req.params.username)
-// 	User.find({ username: req.params.username }, function(err, user){
-// 		if (err) throw err;
-// 	});
-// 	console.log('oy vey===========' + req.body._id);
-// 	var user = req.body._id
-// 	console.log('route index req.body is: ' + req.body);
-//   res.redirect('/users/' + user);
-// });
 
 // LOGOUT
 router.get('/logout', function(req, res) {
@@ -67,6 +56,13 @@ router.get('/logout', function(req, res) {
     req.flash('success','You have been logged out.');
     res.redirect('/');
 });
+
+
+// posting from main form
+router.post('/index', function(req, res){
+  res.redirect('/table/' + req.user.id);
+});
+
 
 
 module.exports = router;
