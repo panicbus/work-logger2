@@ -8,21 +8,9 @@ var entrySchema = new Schema({
   hours: { type: Number },
   payout: { type: Number },
   tips: { type: Number },
-  income: { type: Number },
-	user_id: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'User'
-	}
-	// user_id: {
- //    id: {
- //      type: mongoose.Schema.Types.ObjectId,
- //      ref: User
- //    },
- //    username: String
- //  }
+  income: { type: Number }
 });
 
 // defining and accessing the Mongoose model
-var Entries = mongoose.model('Entries', entrySchema);
 
-module.exports = Entries;
+module.exports = mongoose.model('Entries', entrySchema);

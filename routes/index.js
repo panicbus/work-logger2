@@ -12,6 +12,17 @@ router.get('/table', function(req, res, next){
 	res.render('table', { title: 'table' })
 })
 
+router.get('/table/user/:id', function(req, res, next){
+  User.findById(req.params.id).populate('entries').exec(function(err, entries){
+    if(err){
+      console.log(err)
+    } else {
+      console.log(entries);
+      res.render('table', { entries: entries})
+    }
+  })
+})
+
 // For user authenticaion
 // REGISTER
 router.get('/register', function(req, res){
@@ -49,12 +60,13 @@ router.post('/login', authMiddleware, function(req, res){
 
 
 
+
 // LOGOUT
 router.get('/logout', function(req, res) {
     req.logout();
     console.log('User has been logged out... redirecting back to home');
     req.flash('success','You have been logged out.');
-    res.redirect('/');
+    res.redirect('/login');
 });
 
 

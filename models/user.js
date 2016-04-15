@@ -8,7 +8,7 @@ var UserSchema = new mongoose.Schema({
     entries: [
     	{
     		type: mongoose.Schema.Types.ObjectId,
-    		ref: 'EntryModel'
+    		ref: 'Entries'
     	}
     ]
 });
