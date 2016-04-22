@@ -27,34 +27,6 @@ router.get('/', function(req, res, next) {
 // })
 
 
-// router.get('/table/user/:id', function(req, res, next){
-
-//   function renderTable(res, data){
-//     console.log('boom!!!')
-//     res.render('table', {users:data['users'], entries:data['entries']});
-//   }
-
-//   User.find(function(err, users){
-//     if(err){
-//       console.log(err)
-//     } else {
-//       console.log('these are the users: ' + users);
-//       Entries.find(function(err, entries){
-//         if (err) {
-//           console.log('entries.find err: ' + err)
-//         } else {
-//           console.log('found entries: ' + entries)
-//           console.log('found users: ' + users)
-//           renderTable(res, {users: users, entries: entries});
-//         } // end else 2
-
-//       }) // end Entries.find
-//     } // end else 1
-//   }) // end .exec
-// }) // end router.get
-
-
-
 // For user authenticaion
 // REGISTER
 router.get('/register', function(req, res){
