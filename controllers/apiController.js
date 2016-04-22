@@ -34,10 +34,12 @@ module.exports = function(app){
 	// });
 
 	// // GET THE ENTRIES PER THE USER ID
+	// the user id param is coming from htmlController.js line 20
 	app.get('/api/user', function(req, res){
 		// mongoose provides the findById method
 		// will be a single response so entry (singular)
-		console.log('#################' + req.params.id);
+		// looks for the User by id then populates the response with the items
+		// in the User's entries array
 		User.findById(req.user._id).populate('entries').exec(function(err, user){
 			if (err) throw err;
 			console.log('user ****==: ' + user);
@@ -104,6 +106,7 @@ module.exports = function(app){
 
 
 	// DELETE ENTRY with clicked entry param id
+		// TODO: have the delete method delete from User DB too entries array
 	app.delete('/api/entry/:entry_id', function(req, res){
 				// .remove would also work
 		Entries.findByIdAndRemove({

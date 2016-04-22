@@ -13,18 +13,18 @@ var passportLocalMongoose = require("passport-local-mongoose");
 var methodOverride        = require("method-override");
 var session 							= require('express-session');
 var util 									= require('util');
+// is this User needed here?
 var	User 			      = require('./models/user');
 
 var config 					= require('./config'),
 		setupController = require('./controllers/setupController'),
 		apiController 	= require('./controllers/apiController'),
-		htmlController 	= require('./controllers/htmlController'),
-		userController	= require('./controllers/userController');
+		htmlController 	= require('./controllers/htmlController');
 
 var port = process.env.PORT || 3000;
 
-var	indexRoutes = require('./routes/index'),
-		userRoutes 	= require('./routes/users');
+// var	indexRoutes = require('./routes/index'),
+var userRoutes = require('./routes/users');
 
 
 // for views
@@ -64,7 +64,7 @@ app.use(function(req, res, next){
     next();
 });
 
-app.use(indexRoutes);
+// app.use(indexRoutes);
 app.use(userRoutes);
 
 
@@ -80,7 +80,6 @@ mongoose.connect(config.getDbConnectionString());
 htmlController(app);
 setupController(app);
 apiController(app);
-userController(app);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
