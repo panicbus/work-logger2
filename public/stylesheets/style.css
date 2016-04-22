@@ -64,3 +64,18 @@ input {
 	font-size: 25px;
 	padding-top: 100px;
 }
+
+
+/* error messages */
+.flash-container {
+	position: absolute;
+	top: 40px;
+	width: 100%;
+}
+.flash{
+	padding: 10px 0;
+	width: 40%;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;
+}

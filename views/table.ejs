@@ -5,12 +5,23 @@
 	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
-<body ng-controller="tableController as vm">
-
 	<%include ./partials/header %>
 
+<body ng-controller="tableController as vm">
 
-		<table class="table table-bordered table-striped" ng-init="getUserEntries()">
+	<!-- error messages container -->
+	<div class="flash-container">
+		<div class="flash">
+	  	<% if(error && error.length > 0) { %>
+	  	<div class="alert alert-danger" role="alert"><%= error %></div>
+	  	<% } else if(success && success.length > 0) { %>
+		  	<div class="alert alert-success" role="alert"><%= success %></div>
+	  	<% } %>
+	  </div>
+  </div>
+
+
+		<table class="table table-bordered table-striped" ng-init="getEntries()">
 			<thead>
 				<tr>
 					<th class="column-index">#</th>

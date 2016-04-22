@@ -15,7 +15,7 @@ var session 							= require('express-session');
 var util 									= require('util');
 var	User 			      = require('./models/user');
 
-var config 					= require('./config');
+var config 					= require('./config'),
 		setupController = require('./controllers/setupController'),
 		apiController 	= require('./controllers/apiController'),
 		htmlController 	= require('./controllers/htmlController'),
@@ -51,10 +51,11 @@ app.use(require('express-session')({
 app.use(passport.initialize());
 app.use(cookieParser());
 app.use(passport.session());
-app.use(flash());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser()) ;
 passport.deserializeUser(User.deserializeUser());
+app.use(flash());
+
 
 app.use(function(req, res, next){
     res.locals.currentUser = req.user;
@@ -72,9 +73,7 @@ app.get('/', function(req, res){
   res.render('index');
 })
 // render the success('table') page
-app.get('/table', function(req, res){
-  res.render('table');
-})
+
 
 mongoose.connect(config.getDbConnectionString());
 

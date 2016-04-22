@@ -1,5 +1,5 @@
 var Entries = require('../models/entryModel');
-var Users = require('../models/user');
+var User = require('../models/user');
 var bodyParser = require('body-parser');
 
 // export from this js file endpoints
@@ -23,26 +23,28 @@ module.exports = function(app){
 	// GET ALL THE ENTRIES FOR A PARTICULAR USER (OR WHATEVER)
 	// the :username means parameter than can change on the url
 	// you get that value with req.params
-	app.get('/api/entries/:user_id', function(req, res){
+	// app.get('/api/entries/:user_id', function(req, res){
 
-		// mongoose model
-		Entries.find({ _id: req.params.user_id }, function(err, entries){
-			if (err) throw err;
-			//comes back as json
-			res.send(entries);
-		});
-	});
+	// 	// mongoose model
+	// 	Entries.find({ _id: req.params.user_id }, function(err, entries){
+	// 		if (err) throw err;
+	// 		//comes back as json
+	// 		res.send(entries);
+	// 	});
+	// });
 
-	// GET THE ENTRY PER THE ENTRY ID
-	app.get('/api/entry/:id', function(req, res){
+	// // GET THE ENTRIES PER THE USER ID
+	app.get('/api/user', function(req, res){
 		// mongoose provides the findById method
 		// will be a single response so entry (singular)
-		Entries.findById({ _id: req.params.id }, function(err, entry){
+		console.log('#################' + req.params.id);
+		User.findById(req.user._id).populate('entries').exec(function(err, user){
 			if (err) throw err;
-			res.send(entry);
+			console.log('user ****==: ' + user);
+			console.log('user.entries ****==: ' + user.entries);
+			res.send(user.entries);
 		});
 	});
-
 
 
 	// UPDATE ENTRY
@@ -125,10 +127,6 @@ module.exports = function(app){
 	    } // end first else
     });
   });
-
-
-	/// POST from main Index form
-
 
 }
 

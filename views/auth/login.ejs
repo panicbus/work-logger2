@@ -8,6 +8,18 @@
 <body ng-controller="mainController as vm">
 <%include ../partials/header %>
 
+	<!-- error messages container -->
+	<div class="flash-container">
+		<div class="flash">
+	  	<% if(error && error.length > 0) { %>
+		  	<div class="alert alert-danger" role="alert"><%= error %></div>
+	  	<% } else if(success && success.length > 0) { %>
+		  	<div class="alert alert-success" role="alert">toot <%= success %></div>
+	  	<% } %>
+	  </div>
+  </div>
+
+
 <section>
 	<div class="login-form col-md-6">
 	<h1>Sign-in</h1>
