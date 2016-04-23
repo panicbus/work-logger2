@@ -13,6 +13,7 @@ router.get('/users', function(req, res) {
 
 router.get('/users/:id', isLoggedIn, function(req, res) {
 		console.log(req.params.id)
+        // TODO: /userController doesn't exist anymore!!
     User.findById({ _id: req.params.id }).populate('../userController').exec(function(err, user) {
 			if(err){
 				console.log(':user_id err ' + err);
@@ -48,7 +49,8 @@ router.post('/register', function(req, res) {
             console.log('user.username: ' + user.username);
             console.log('user LOOKING FOR ID: ' + user._id);
             req.flash('success', 'Added ' + user.username);
-            res.redirect('/users/' + user._id);
+            res.redirect('/');
+            // res.redirect('/users/' + user._id);
         }
     });
 });
