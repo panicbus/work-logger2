@@ -9,9 +9,9 @@ var Entries           = require('../models/entryModel');
 var bodyParser = require('body-parser');
 var authMiddleware    = passport.authenticate('local', {failureFlash: true, failureRedirect:'/login'});
 
-// router.get('/', function(req, res, next) {
-//   res.render('index', { title: 'home' });
-// });
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'home' });
+});
 
 // router.get('/table', function(req, res, next){
 // 	res.render('table', { title: 'table' })

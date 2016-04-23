@@ -34,7 +34,7 @@ module.exports = function(app){
 	// });
 
 	// // GET THE ENTRIES PER THE USER ID
-	// the user id param is coming from htmlController.js line 20
+	// the user id param is coming from htmlController.js line 19
 	app.get('/api/user', function(req, res){
 		// mongoose provides the findById method
 		// will be a single response so entry (singular)
@@ -42,8 +42,8 @@ module.exports = function(app){
 		// in the User's entries array
 		User.findById(req.user._id).populate('entries').exec(function(err, user){
 			if (err) throw err;
-			console.log('user ****==: ' + user);
-			console.log('user.entries ****==: ' + user.entries);
+			// console.log('user ****==: ' + user);
+			// console.log('user.entries ****==: ' + user.entries);
 			res.send(user.entries);
 		});
 	});
@@ -128,8 +128,26 @@ module.exports = function(app){
 		      }
 	      });
 	    } // end first else
-    });
-  });
+    }); // end err, entry function
+  }); // end .delete
+
+	// method to attemp to remove the entry from user NOT FUKING WORKING
+	app.delete('/api/user', function(req, res){
+		console.log('----the req.user from USER in delete: ' + req.user.id);
+		console.log('----the req.user.entries from USER in delete: ' + req.user.entries);
+		console.log('----the req.user._id from USER in delete: ' + req.user._id);
+		User.findById(req.user._id).populate('entries').exec(function(err, user){
+			if (err) {
+				throw err
+			} else {
+				console.log('user ****==: ' + user);
+				console.log('user.entries ****==: ' + user.entries);
+				console.log('user.entries delete ran: ' + user.entries.id);
+				User.findByIdAndRemove(user.entries.id);
+			}
+		});
+	})
+
 
 }
 

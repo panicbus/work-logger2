@@ -7,37 +7,36 @@ module.exports = function(app) {
 
 	// populate the main table page with values from the DB model request
 
-// GET DATA FOR TABLE PAGE
-// this is the get request that does all the heavy lifting to send data to angular
-// On the /table uri, it looks up the User id & if it finds it, looks for the Entries array
-// then runs the renderTable function that routes to then renders the table page
-// using user data and entries data, essentially /table/user/20930293839
-// but only using the /table url (which angular needed)
-// -- this would also work as a router.get method --
-app.get('/table', function(req, res){
-  function renderTable(res, data){
-    console.log('boom!!!')
-    res.render('table', {user:data['user'], entries:data['entries']});
-  }
-  console.log("------------currentUser---" + req.user)
-  User.findById(req.user._id, function(err, user){
-    if(err){
-      console.log(err)
-    } else {
-      console.log('these are the users: ' + user);
-      Entries.find(function(err, entries){
-        if (err) {
-          console.log('entries.find err: ' + err)
-        } else {
-          console.log('found entries: ' + entries)
-          console.log('found user: ' + user)
-          renderTable(res, {user: user, entries: entries});
-        } // end else 2
+	// GET DATA FOR TABLE PAGE
+	// this is the get request that does all the heavy lifting to send data to angular
+	// On the /table uri, it looks up the User id & if it finds it, looks for the Entries array
+	// then runs the renderTable function that routes to then renders the table page
+	// using user data and entries data, essentially /table/user/20930293839
+	// but only using the /table url (which angular needed)
+	// -- this would also work as a router.get method --
+	app.get('/table', function(req, res){
+	  function renderTable(res, data){
+	    res.render('table', {user:data['user'], entries:data['entries']});
+	  }
+	  console.log("------------currentUser---" + req.user)
+	  User.findById(req.user._id, function(err, user){
+	    if(err){
+	      console.log(err)
+	    } else {
+	      // console.log('these are the users: ' + user);
+	      Entries.find(function(err, entries){
+	        if (err) {
+	          console.log('entries.find err: ' + err)
+	        } else {
+	          // console.log('found entries: ' + entries)
+	          // console.log('found user: ' + user)
+	          renderTable(res, {user: user, entries: entries});
+	        } // end else 2
 
-      }) // end Entries.find
-    } // end else 1
-  }) // end .exec
-});
+	      }) // end Entries.find
+	    } // end else 1
+	  }) // end .exec
+	});
 
 	// POST FROM MAIN FORM
 	// takes the user id from the url on the index page & uses it as a param (:id)
@@ -89,5 +88,29 @@ app.get('/table', function(req, res){
 	// 		res.render('table');
 	// 	});
 	// });
+
+	// NOT NECESSARY?
+	app.delete('/table', function(req, res){
+	  function renderTable(res, data){
+	    res.render('table', {user:data['user'], entries:data['entries']});
+	  }
+	  console.log("------------currentUser in delete ---" + req.user)
+	  User.findById(req.user._id, function(err, user){
+	    if(err){
+	      console.log(err)
+	    } else {
+	      Entries.find(function(err, entries){
+	        if (err) {
+	          console.log('entries.find err: ' + err)
+	        } else {
+	          console.log('**found entries**: ' + entries)
+	          renderTable(res, {user: user, entries: entries});
+	        } // end else 2
+
+	      }) // end Entries.find
+	    } // end else 1
+	  }) // end .exec
+	});
+
 
 }

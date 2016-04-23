@@ -46,8 +46,9 @@ router.post('/register', function(req, res) {
         else{
             console.log('user registered successfully...');
             console.log('user.username: ' + user.username);
+            console.log('user LOOKING FOR ID: ' + user._id);
             req.flash('success', 'Added ' + user.username);
-            res.redirect('/');
+            res.redirect('/users/' + user._id);
         }
     });
 });
