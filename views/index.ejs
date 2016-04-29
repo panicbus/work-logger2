@@ -4,6 +4,7 @@
 	<title>Work Logger</title>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link href='https://fonts.googleapis.com/css?family=Work+Sans' rel='stylesheet' type='text/css'>
 </head>
 
 <%include ./partials/header %>
@@ -16,7 +17,7 @@
 	  	<% if(error && error.length > 0) { %>
 		  	<div class="alert alert-danger" role="alert"><%= error %></div>
 	  	<% } else if(success && success.length > 0) { %>
-		  	<div class="alert alert-success" role="alert">toot <%= success %></div>
+		  	<div class="alert alert-success" role="alert"><%= success %></div>
 	  	<% } %>
 	  </div>
   </div>

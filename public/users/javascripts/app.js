@@ -1,2 +1,2 @@
-var app = angular.module('workLogger', ['ngResource']);
+// var app = angular.module('workLogger', ['ngResource']);
 

@@ -1,20 +1,22 @@
-var express 					= require('express'),
-		router 						= express.Router(),
-		passport          = require('passport'),
-    User              = require('../models/user'),
-    isLoggedIn     		= require("../middleware/isLoggedIn");
+var express         = require('express'),
+    router 		    = express.Router(),
+    passport        = require('passport'),
+    User            = require('../models/user'),
+    isLoggedIn      = require("../middleware/isLoggedIn"),
+    bodyParser      = require('body-parser'),
+    isRegistered    = require("../middleware/isRegistered");
 
 var authMiddleware    = passport.authenticate('local', {failureRedirect:'/login'});
 
 
-router.get('/users', function(req, res) {
-    res.render('index');
-});
+// router.get('/users', function(req, res) {
+//     res.render('index');
+// });
 
 router.get('/users/:id', isLoggedIn, function(req, res) {
 		console.log(req.params.id)
         // TODO: /userController doesn't exist anymore!!
-    User.findById({ _id: req.params.id }).populate('../userController').exec(function(err, user) {
+    User.findById({ _id: req.params.id }).exec(function(err, user) {
 			if(err){
 				console.log(':user_id err ' + err);
 			}
@@ -34,6 +36,7 @@ router.get('/register', function(req, res){
 })
 
 router.post('/register', function(req, res) {
+
     var newUser  = new User({username : req.body.username}),
         password = req.body.password;
 
@@ -48,7 +51,9 @@ router.post('/register', function(req, res) {
             console.log('user registered successfully...');
             console.log('user.username: ' + user.username);
             console.log('user LOOKING FOR ID: ' + user._id);
-            req.flash('success', 'Added ' + user.username);
+            // uses the flash container in index.ejs
+            req.flash('success', 'Welcome, ' + user.username + '!');
+
             res.redirect('/');
             // res.redirect('/users/' + user._id);
         }
@@ -68,7 +73,7 @@ router.post('/login', authMiddleware, function(req, res){
 router.get('/logout', function(req, res) {
     req.logout();
     console.log('User has been logged out... redirecting back to home');
-    req.flash('success','You have been logged out.');
+    req.flash('success','You\'ve been logged out.');
     res.redirect('/login');
 });
 

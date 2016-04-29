@@ -1,25 +1,14 @@
 <!DOCTYPE html>
 <html ng-app="workLogger">
 <head>
-	<title></title>
+	<title>Work Logger Sign Up</title>
+		<link href='https://fonts.googleapis.com/css?family=Work+Sans' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 <body ng-controller="tableController as vm">
 
 <%include ../partials/header %>
-
-	<!-- error messages container -->
-	<div class="flash-container">
-		<div class="flash">
-	  	<% if(error && error.length > 0) { %>
-		  	<div class="alert alert-danger" role="alert"><%= error %></div>
-	  	<% } else if(success && success.length > 0) { %>
-		  	<div class="alert alert-success" role="alert">toot <%= success %></div>
-	  	<% } %>
-	  </div>
-  </div>
-
 
 
 <section>
