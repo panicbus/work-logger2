@@ -7,8 +7,8 @@ var entrySchema = new Schema({
   date: { type: Date, default: Date.now },
   hours: { type: Number },
   payout: { type: Number },
-  tips: { type: Number },
-  income: { type: Number }
+  tips: { type: Number }
+  // income: { type: Number }
 },
 {
 	timestamps: true

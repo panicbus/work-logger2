@@ -32,12 +32,12 @@ app.controller('tableController', ['$scope', '$http', '$resource', function($sco
 	$scope.saveUpdate = function(id, index, entry){
 		// and pass it into the post request
 		$http.post('/api/entry/' + id, {
-				username: entry.username,
+				// username: entry.username,
 				date: entry.date,
 				hours: entry.hours,
-				income: entry.income,
 				payout: entry.payout,
-				tips: entry.tips
+				tips: entry.tips,
+				income: entry.income
 			})
 			.then(function(res, status){
 				console.log(res.data);

@@ -53,9 +53,9 @@
 				<span ng-show="!editMode[$index]">{{ entry.tips }}</span>
 				<input ng-show="editMode[$index]" type="text" ng-model="entry.tips"/>
 			</td>
-			<td class="column-data" ng-click="editEntry($index)">
-				<span ng-show="!editMode[$index]">{{ entry.income }}</span>
-				<input ng-show="editMode[$index]" type="text" ng-model="entry.income"/>
+			<td class="column-data">
+				<!-- Double negation for addition- http://stackoverflow.com/a/20147874/2526710 -->
+				<span>{{ entry.payout--entry.tips }}</span>
 			</td>
 			<td class="column-btns">
 

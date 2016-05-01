@@ -62,15 +62,15 @@ module.exports = function(app){
 	  return res.status(400).send('payout must be provided');
 		if (!req.body.tips)
 	  return res.status(400).send('tips must be provided');
-		if (!req.body.income)
-	  return res.status(400).send('income must be provided');
+		// if (!req.body.income)
+	 //  return res.status(400).send('income must be provided');
 
 	  var updateData = {
 		  date: req.body.date,
 		  hours: req.body.hours,
 		  payout: req.body.payout,
-		  tips: req.body.tips,
-		  income: req.body.income
+		  tips: req.body.tips
+		  // income: req.body.income
 	  };
 	  Entries.findByIdAndUpdate(req.params.entry_id, updateData, function(err, entry){
 	    if (err)
