@@ -1,5 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Work+Sans);
-
 html, body {
 	padding: 0;
 	margin: 0;
@@ -26,6 +24,7 @@ input {
   width: 100%;
 }
 
+/*/// NAV STUFF ///*/
 .navbar {
 	border-radius: 0 !important;
 	margin-bottom: 0 !important;
@@ -35,7 +34,15 @@ input {
 	margin-right: 0 !important;
 	padding-right: 15px;
 }
+.navbar-text {
+	margin-top: 0 !important;
+}
+.navbar-brand {
+  font-size: 30px !important;
+  color: #000 !important;
+}
 
+/* AUTHENTICATION */
 .username, .password {
 	padding: 5px;
 }
@@ -47,6 +54,23 @@ input {
 	padding: 0 15px;
 }
 
+/*// WELCOME SPLASH // */
+.welcome-splash {
+	text-align: center;
+	width: 60%;
+	background: lightgreen;
+	color: #fff;
+	font-size: 22px;
+	padding: 20px;
+	margin: 30px auto;
+}
+.welcome-splash a {
+	color: #fff;
+	text-decoration: underline;
+}
+.welcome-splash a:hover {
+	color: #ccc;
+}
 
 /*// TABLE PAGE //*/
 .column-index {
@@ -76,13 +100,16 @@ input {
 .right-option {
 	float: right;
 }
-.login-message {
-	font-size: 25px;
-	padding-top: 100px;
+.table-striped {
+	background-color: lightgreen;
 }
 
 
 /* error messages */
+.login-message {
+	font-size: 25px;
+	padding-top: 100px;
+}
 .flash-container {
 	position: absolute;
 	top: 40px;
