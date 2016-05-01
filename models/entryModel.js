@@ -3,14 +3,18 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var entrySchema = new Schema({
-  // username: String,
-  date: { type: Date, required: 'Please enter year', default: Date.now },
+  // date: { type: Date, required: 'Please enter year', default: Date.now },
+  date: { type: Date, default: Date.now },
   hours: { type: Number },
   payout: { type: Number },
   tips: { type: Number },
   income: { type: Number }
+},
+{
+	timestamps: true
 });
 
-// defining and accessing the Mongoose model
+// timestamps: true adds a createdAt and updatedAt property to the date in the model
 
+// defining and accessing the Mongoose model
 module.exports = mongoose.model('Entries', entrySchema);

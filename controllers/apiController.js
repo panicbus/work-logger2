@@ -54,8 +54,8 @@ module.exports = function(app){
 	  return res.status(400).send('an entry_id must be provided');
 		// if (!req.body.username)
 	 //  return res.status(400).send('username must be provided');
-		if (!req.body.date)
-	  return res.status(400).send('date must be provided');
+		// if (!req.body.date)
+	 //  return res.status(400).send('date must be provided');
 		if (!req.body.hours)
 	  return res.status(400).send('hours field can\'t be blank');
 		if (!req.body.payout)
