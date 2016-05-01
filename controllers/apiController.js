@@ -24,7 +24,6 @@ module.exports = function(app){
 	// the :username means parameter than can change on the url
 	// you get that value with req.params
 	// app.get('/api/entries/:user_id', function(req, res){
-
 	// 	// mongoose model
 	// 	Entries.find({ _id: req.params.user_id }, function(err, entries){
 	// 		if (err) throw err;
@@ -42,7 +41,6 @@ module.exports = function(app){
 		// in the User's entries array
 		User.findById(req.user._id).populate('entries').exec(function(err, user){
 			if (err) throw err;
-			// console.log('user ****==: ' + user);
 			// console.log('user.entries ****==: ' + user.entries);
 			res.send(user.entries);
 		});
@@ -68,7 +66,6 @@ module.exports = function(app){
 	  return res.status(400).send('income must be provided');
 
 	  var updateData = {
-	    // username: req.body.username,
 		  date: req.body.date,
 		  hours: req.body.hours,
 		  payout: req.body.payout,
