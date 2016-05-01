@@ -41,26 +41,20 @@
 
 			<!-- logout is failing because of the currentUser thing -->
 			<form method="POST" action="/table/<%=currentUser._id%>">
-			  <div class="form-group">
-			    <!-- <label for="date">Date</label>
-			    <input type="text" class="form-control" id="date" name="date" ng-model="vm.date" placeholder="Date">
-			  </div> -->
+
 			  <div class="form-group">
 			    <label for="timeLogged">Hours logged</label>
 			    <input type="text" class="form-control" id="timeLogged" name="hours" ng-model="vm.hours" placeholder="Nubmer of hours">
 			  </div>
 			  <div class="form-group">
-			    <label for="payout">Total Payout</label>
+			    <label for="payout">Total payout</label>
 			    <input type="text" class="form-control" id="payout" name="payout" ng-model="vm.payout" placeholder="Payout amount">
 			  </div>
 			  <div class="form-group">
 			    <label for="tips">Total tips earned</label>
 			    <input type="text" class="form-control" id="tips" name="tips" ng-model="vm.tips" placeholder="Tips">
 			  </div>
-			  <!-- <div class="form-group">
-			    <label for="totalIncome">Total Income</label>
-			    <input type="text" class="form-control" id="totalIncome" name="income" ng-model="vm.income" placeholder="Total Income">
-			  </div> -->
+
 			  <button type="submit" id='submit' ng-model="newEntry" class="btn btn-primary">Submit</button>
 			</form>
 		<% }; %>
@@ -80,7 +74,6 @@
 	<script src="javascripts/app.js"></script>
 	<script src="javascripts/fade.js"></script>
 	<script src="javascripts/controllers/mainController.js"></script>
-
 
 </body>
 </html>
