@@ -1,0 +1,105 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Work Sans', sans-serif !important; }
+
+section {
+  padding: 15px 50px 30px; }
+
+a {
+  color: #00B7FF; }
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important; }
+
+input {
+  padding: 5px;
+  width: 100%; }
+
+/*/// NAV STUFF ///*/
+.navbar {
+  border-radius: 0 !important;
+  margin-bottom: 0 !important;
+  font-size: 20px; }
+
+.navbar-right {
+  margin-right: 0 !important;
+  padding-right: 15px; }
+
+.navbar-text {
+  margin-top: 0 !important; }
+
+.navbar-brand {
+  font-size: 30px !important;
+  color: #000 !important; }
+
+/* AUTHENTICATION */
+.username, .password {
+  padding: 5px; }
+  .username input, .password input {
+    padding: 12px;
+    font-size: 20px; }
+
+.login-lable {
+  padding: 0 15px; }
+
+/*// WELCOME SPLASH // */
+.welcome-splash {
+  text-align: center;
+  width: 60%;
+  background: lightgreen;
+  color: #fff;
+  font-size: 22px;
+  padding: 20px;
+  margin: 30px auto; }
+  .welcome-splash a {
+    color: #fff;
+    text-decoration: underline; }
+    .welcome-splash a:hover {
+      color: #ccc; }
+
+/*// TABLE PAGE //*/
+.column-index {
+  width: 2%; }
+
+.column-body {
+  width: 15%; }
+
+.column-data {
+  width: 10%; }
+
+.column-btns {
+  width: 10%; }
+
+.delete-btn {
+  margin-right: 10px; }
+
+.back-link {
+  padding-left: 15px; }
+
+.to-table {
+  font-size: 20px;
+  margin-top: -35px; }
+
+.right-option {
+  float: right; }
+
+.table-striped {
+  background-color: lightgreen; }
+
+/* error messages */
+.login-message {
+  font-size: 25px;
+  padding-top: 100px; }
+
+.flash-container {
+  position: absolute;
+  top: 40px;
+  width: 100%; }
+
+.flash {
+  padding: 10px 0;
+  width: 40%;
+  height: auto;
+  margin: 0 auto;
+  text-align: center; }
