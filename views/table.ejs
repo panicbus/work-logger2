@@ -21,15 +21,25 @@
 	  </div>
   </div>
 
-  <div class="calculations-box">
-  	<table class="table table-bordered">
-  		<tr>
-  			<td class="monthly-earnings"></td>
-  			<td class="alltime-earnings"></td>
-  			<td class="piechart"></td>
-  		</tr>
-
-  	</table>
+  <div class="calculations-box" ng-cloak>
+  	<div class="row">
+			<div class="monthly-tips col-xs-6 col-md-3">
+				<p>Tips this Month</p>
+				<!-- <p>${{ getMonthlyTips() }}</p> -->
+			</div>
+			<div class="alltime-tips col-xs-6 col-md-3">
+				<p>Tips All-Time</p>
+				<p>${{ getTotalTips() }}</p>
+			</div>
+			<div class="monthly-earnings col-xs-6 col-md-3">
+				<p>Total Earnings This Month</p>
+				<!-- <p>${{ getMonthlyEarnings() }}</p> -->
+			</div>
+			<div class="alltime-earnings col-xs-6 col-md-3">
+				<p>All-Time Earnings</p>
+				<p>${{ getTotalEarnings() }}</p>
+			</div>
+		</div>
   </div>
 
 

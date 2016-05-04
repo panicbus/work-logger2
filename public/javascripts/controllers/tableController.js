@@ -6,6 +6,24 @@ app.controller('tableController', ['$scope', '$http', '$resource', function($sco
 			$scope.entries = response.data;
 		});
 
+		$scope.getTotalEarnings = function(){
+			var totalPayout = 0;
+	    for(var i = 0; i < $scope.entries.length; i++){
+        var entry = $scope.entries[i];
+        totalPayout += (entry.payout);
+	    }
+	    return totalPayout.toFixed(2);
+		}
+
+		$scope.getTotalTips = function(){
+			var totalTips = 0;
+			for(var i = 0; i < $scope.entries.length; i++){
+			  var entry = $scope.entries[i];
+        totalTips += (entry.tips);
+	    }
+	    return totalTips.toFixed(2);
+		}
+
 	}, function(error){
 		alert('There was a problem getting your entry: ' + error.message);
 	};
@@ -51,6 +69,25 @@ app.controller('tableController', ['$scope', '$http', '$resource', function($sco
 	  $http.get('/api/entries').then(function(response){
 			$scope.entries = response.data;
 		});
+
+		$scope.getTotalEarnings = function(){
+			var totalPayout = 0;
+	    for(var i = 0; i < $scope.entries.length; i++){
+        var entry = $scope.entries[i];
+        totalPayout += (entry.payout);
+	    }
+	    return totalPayout.toFixed(2);
+		}
+
+		$scope.getTotalTips = function(){
+			var totalTips = 0;
+			for(var i = 0; i < $scope.entries.length; i++){
+			  var entry = $scope.entries[i];
+        totalTips += (entry.tips);
+	    }
+	    return totalTips.toFixed(2);
+		}
+
 	}
 
 	// DELETE entry

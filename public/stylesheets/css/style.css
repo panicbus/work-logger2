@@ -59,6 +59,13 @@ input {
       color: #ccc; }
 
 /*// TABLE PAGE //*/
+.calculations-box {
+  width: 85%;
+  padding: 20px;
+  background: lightgreen;
+  color: #fff;
+  font-size: 20px; }
+
 .column-index {
   width: 2%; }
 

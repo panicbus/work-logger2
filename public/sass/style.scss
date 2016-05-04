@@ -66,6 +66,21 @@ input {
 }
 
 /*// TABLE PAGE //*/
+// Calculations box //
+.calculations-box {
+	width: 80%;
+	padding: 20px;
+	background: seagreen;
+	color: #fff;
+	font-size: 20px;
+	margin: 40px auto;
+	p {
+		text-align: center;
+	}
+}
+
+
+// Editable table
 .column-index {
 	width: 2%;
 }
@@ -78,7 +93,6 @@ input {
 .column-btns {
 	width: 10%;
 }
-
 .delete-btn {
 	margin-right: 10px;
 }
