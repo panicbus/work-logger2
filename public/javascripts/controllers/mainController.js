@@ -1,3 +1,3 @@
-app.controller('mainController', ['$scope', '$http', '$resource', function($scope, $http, $resource){
+app.controller('mainController', ['$scope', '$http', '$resource', '$filter', function($scope, $http, $resource, $filter){
 
 }]);

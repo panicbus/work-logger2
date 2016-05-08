@@ -1,28 +1,64 @@
-app.controller('tableController', ['$scope', '$http', '$resource', function($scope, $http, $resource){
+app.controller('tableController', ['$scope', '$http', '$resource', '$filter', function($scope, $http, $resource, $filter){
 
 	$scope.getEntries = function(){
 		// $http.get('/api/entries').then(function(response){
 		$http.get('/api/user').then(function(response){
 			$scope.entries = response.data;
-		});
 
-		$scope.getTotalEarnings = function(){
-			var totalPayout = 0;
-	    for(var i = 0; i < $scope.entries.length; i++){
-        var entry = $scope.entries[i];
-        totalPayout += (entry.payout);
-	    }
-	    return totalPayout.toFixed(2);
-		}
+			// filter by current month then add results by earnings + tips
+			$scope.getMonthlyEarnings = function(monthlyEarnings){
+				var monthlyEarnings = 0;
+		    var filter = filterBy = $filter('filter');
+		    var dateFilter = $filter('date');
+		    var thisMonth = dateFilter(new Date(), 'MM');
 
-		$scope.getTotalTips = function(){
-			var totalTips = 0;
-			for(var i = 0; i < $scope.entries.length; i++){
-			  var entry = $scope.entries[i];
-        totalTips += (entry.tips);
-	    }
-	    return totalTips.toFixed(2);
-		}
+		    $scope.filteredMonthEntries = filter($scope.entries, {createdAt: thisMonth})
+
+				for(var i = 0; i < $scope.filteredMonthEntries.length; i++){
+				  var entry = $scope.filteredMonthEntries[i];
+	        monthlyEarnings += (entry.payout + entry.tips);
+		    }
+		    return monthlyEarnings.toFixed(2);
+			}
+
+			// filter by current month then add results by tips
+			$scope.getMonthlyTips = function(monthlyTips){
+				var monthlyTips = 0;
+		    var filter = filterBy = $filter('filter');
+		    var dateFilter = $filter('date');
+		    var thisMonth = dateFilter(new Date(), 'MM');
+
+		    $scope.filteredMonthEntries = filter($scope.entries, {createdAt: thisMonth})
+
+				for(var i = 0; i < $scope.filteredMonthEntries.length; i++){
+				  var entry = $scope.filteredMonthEntries[i];
+	        monthlyTips += (entry.tips);
+		    }
+		    return monthlyTips.toFixed(2);
+			}
+
+
+			// add results by earnings + tips
+			$scope.getTotalEarnings = function(){
+				var totalPayout = 0;
+		    for(var i = 0; i < $scope.entries.length; i++){
+	        var entry = $scope.entries[i];
+	        totalPayout += (entry.payout + entry.tips);
+		    }
+		    return totalPayout.toFixed(2);
+			}
+
+			// add results by tips
+			$scope.getTotalTips = function(){
+				var totalTips = 0;
+				for(var i = 0; i < $scope.entries.length; i++){
+				  var entry = $scope.entries[i];
+	        totalTips += (entry.tips);
+		    }
+		    return totalTips.toFixed(2);
+			}
+
+		}); // end http.get req to api
 
 	}, function(error){
 		alert('There was a problem getting your entry: ' + error.message);
@@ -50,8 +86,7 @@ app.controller('tableController', ['$scope', '$http', '$resource', function($sco
 	$scope.saveUpdate = function(id, index, entry){
 		// and pass it into the post request
 		$http.post('/api/entry/' + id, {
-				// username: entry.username,
-				date: entry.date,
+				// date: entry.date,
 				hours: entry.hours,
 				payout: entry.payout,
 				tips: entry.tips,
@@ -69,25 +104,6 @@ app.controller('tableController', ['$scope', '$http', '$resource', function($sco
 	  $http.get('/api/entries').then(function(response){
 			$scope.entries = response.data;
 		});
-
-		$scope.getTotalEarnings = function(){
-			var totalPayout = 0;
-	    for(var i = 0; i < $scope.entries.length; i++){
-        var entry = $scope.entries[i];
-        totalPayout += (entry.payout);
-	    }
-	    return totalPayout.toFixed(2);
-		}
-
-		$scope.getTotalTips = function(){
-			var totalTips = 0;
-			for(var i = 0; i < $scope.entries.length; i++){
-			  var entry = $scope.entries[i];
-        totalTips += (entry.tips);
-	    }
-	    return totalTips.toFixed(2);
-		}
-
 	}
 
 	// DELETE entry

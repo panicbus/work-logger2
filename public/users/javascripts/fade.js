@@ -7,5 +7,5 @@ function wait(){
 }
 
 function flash_fade(){
-	$('.flash-container').fadeOut('fast');
+	$('.flash-container').animate({ top: '-10', opacity: 'toggle' }, 'slow');
 }
