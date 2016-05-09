@@ -24,7 +24,7 @@ input {
 
 .navbar-right {
   margin-right: 0 !important;
-  padding-right: 15px; }
+  padding: 23px 15px 0 0; }
 
 .navbar-text {
   margin-top: 0 !important; }
@@ -32,6 +32,12 @@ input {
 .navbar-brand {
   font-size: 30px !important;
   color: #000 !important; }
+
+.footer-title {
+  padding-top: 15px; }
+
+.footer-copyright {
+  padding-top: 15px; }
 
 /* AUTHENTICATION */
 .username, .password {
