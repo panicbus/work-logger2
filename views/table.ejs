@@ -73,8 +73,8 @@
 			<tr class="table-head">
 				<th class="column-index">#</th>
 				<th class="column-data">Date</th>
-				<th class="column-data">Miles</th>
 				<th class="column-data">Time Logged</th>
+				<th class="column-data">Miles</th>
 				<th class="column-data">Payout</th>
 				<th class="column-data">Tips</th>
 				<th class="column-data">Total income</th>
@@ -87,7 +87,6 @@
  			<td class="column-data" ng-click="editEntry($index)">
 				<!-- you can't edit the date now -->
 				<span>{{ entry.createdAt | date:'EEE, MMM d, yyyy'}}</span>
-
 				<!-- <span ng-show="!editMode[$index]">{{ entry.date | date:'EEE, MMM d, yyyy'}}</span>
 				<input ng-show="editMode[$index]" value="{{entry.date | date:'yyyy-MM-dd'}}" ng-model="entry.date"/> -->
 			</td>
