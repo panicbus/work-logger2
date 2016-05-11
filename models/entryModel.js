@@ -5,6 +5,7 @@ var Schema = mongoose.Schema;
 var entrySchema = new Schema({
   // date: { type: Date, required: 'Please enter year', default: Date.now },
   date: { type: Date, default: Date.now },
+  miles: { type: Number },
   hours: { type: Number },
   payout: { type: Number },
   tips: { type: Number }

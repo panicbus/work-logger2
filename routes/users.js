@@ -1,12 +1,12 @@
-var express         = require('express'),
-    router 		    = express.Router(),
-    passport        = require('passport'),
-    User            = require('../models/user'),
-    isLoggedIn      = require("../middleware/isLoggedIn"),
-    bodyParser      = require('body-parser'),
-    isRegistered    = require("../middleware/isRegistered");
+var express      = require('express'),
+    router 		   = express.Router(),
+    passport     = require('passport'),
+    User         = require('../models/user'),
+    isLoggedIn   = require("../middleware/isLoggedIn"),
+    bodyParser   = require('body-parser'),
+    isRegistered = require("../middleware/isRegistered");
 
-var authMiddleware    = passport.authenticate('local', {failureRedirect:'/login'});
+var authMiddleware = passport.authenticate('local', {failureRedirect:'/login'});
 
 
 // router.get('/users', function(req, res) {

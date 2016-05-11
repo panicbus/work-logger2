@@ -1,4 +1,4 @@
-// js fade for register and logouts
+// js fade for login
 $(document).ready(function(){
 	wait();
 });

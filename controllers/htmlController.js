@@ -51,7 +51,7 @@ module.exports = function(app) {
 				  hours: req.body.hours,
 				  payout: req.body.payout,
 				  tips: req.body.tips,
-				  // income: req.body.income,
+				  miles: req.body.miles,
 				  user: {
 				  	_id: req.user._id
 				  }

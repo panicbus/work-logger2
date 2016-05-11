@@ -52,12 +52,12 @@ module.exports = function(app){
 		// error cases
 		if (!req.params.entry_id)
 	  return res.status(400).send('an entry_id must be provided');
-		// if (!req.body.username)
-	 //  return res.status(400).send('username must be provided');
 		// if (!req.body.date)
 	 //  return res.status(400).send('date must be provided');
 		if (!req.body.hours)
 	  return res.status(400).send('hours field can\'t be blank');
+		if (!req.body.miles)
+	  return res.status(400).send('miles field must be provided');
 		if (!req.body.payout)
 	  return res.status(400).send('payout must be provided');
 		if (!req.body.tips)
@@ -67,6 +67,7 @@ module.exports = function(app){
 
 	  var updateData = {
 		  date: req.body.date,
+		  miles: req.body.miles,
 		  hours: req.body.hours,
 		  payout: req.body.payout,
 		  tips: req.body.tips

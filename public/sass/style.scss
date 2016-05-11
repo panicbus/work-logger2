@@ -45,7 +45,7 @@ input {
 .username, .password {
 	padding: 5px;
 	input {
-	  padding: 12px;
+	  padding: 8px 10px;
 	  font-size: 20px;
 	}
 }
@@ -57,16 +57,17 @@ input {
 .welcome-splash {
 	text-align: center;
 	width: 60%;
-	background: lightgreen;
-	color: #fff;
+	background: #bbeeaa;
+	color: #666;
 	font-size: 22px;
 	padding: 20px;
 	margin: 30px auto;
 	a {
-		color: #fff;
+		transition: color 0.3s ease;
+		color: #666;
 		text-decoration: underline;
 		&:hover{
-			color: #ccc;
+			color: #888;
 		}
 	}
 }
@@ -78,23 +79,43 @@ input {
 	padding: 20px;
 	background: seagreen;
 	color: #fff;
-	font-size: 20px;
+	font-size: 18px;
 	margin: 40px auto;
 	p {
 		text-align: center;
 	}
+	.calc-label {
+		text-align: center;
+		font-size: 30px;
+		font-weight: bold;
+	}
+	.tips-box, .earnings-box {
+		display: inline-block;
+	}
+	.miles-calculation {
+		.miles-month p {
+			padding-right: 15px;
+			text-align: right;
+		}
+		.miles-total p {
+			padding-left: 15px;
+			text-align: left;
+		}
+	}
+	.row {
+		margin: 0 25px;
+	}
+	.row + .row {
+		border-top: 2px solid #ccc;
+	}
 }
-
 
 // Editable table
 .column-index {
 	width: 2%;
 }
-.column-body {
-	width: 15%;
-}
 .column-data {
-	width: 10%;
+	width: 8%;
 }
 .column-btns {
 	width: 10%;
@@ -104,7 +125,7 @@ input {
 }
 
 .back-link {
-	padding-left: 15px;
+	padding: 0 15px 80px 0;
 }
 .to-table {
 	font-size: 20px;
@@ -113,8 +134,11 @@ input {
 .right-option {
 	float: right;
 }
+.table-head {
+	background: #bbeeaa;
+}
 .table-striped {
-	background-color: lightgreen;
+	background: #d6f4cc;
 }
 
 
