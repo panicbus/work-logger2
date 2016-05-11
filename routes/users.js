@@ -1,12 +1,12 @@
-var express         = require('express'),
-    router 		    = express.Router(),
-    passport        = require('passport'),
-    User            = require('../models/user'),
-    isLoggedIn      = require("../middleware/isLoggedIn"),
-    bodyParser      = require('body-parser'),
-    isRegistered    = require("../middleware/isRegistered");
+var express    = require('express'),
+  router 		   = express.Router(),
+  passport     = require('passport'),
+  User         = require('../models/user'),
+  isLoggedIn   = require("../middleware/isLoggedIn"),
+  bodyParser   = require('body-parser'),
+  isRegistered = require("../middleware/isRegistered");
 
-var authMiddleware    = passport.authenticate('local', {failureRedirect:'/login'});
+var authMiddleware = passport.authenticate('local', {failureRedirect:'/login'});
 
 
 // router.get('/users', function(req, res) {
@@ -14,18 +14,18 @@ var authMiddleware    = passport.authenticate('local', {failureRedirect:'/login'
 // });
 
 router.get('/users/:id', isLoggedIn, function(req, res) {
-		console.log(req.params.id)
-        // TODO: /userController doesn't exist anymore!!
-    User.findById({ _id: req.params.id }).exec(function(err, user) {
-			if(err){
-				console.log(':user_id err ' + err);
-			}
-			else{
-				console.log('found user: ' + user.id);
-				// res.render('./table', {user: user});
-				res.render('./index', {user: user});
-			}
-   });
+	console.log(req.params.id)
+      // TODO: /userController doesn't exist anymore!!
+  User.findById({ _id: req.params.id }).exec(function(err, user) {
+		if(err){
+			console.log(':user_id err ' + err);
+		}
+		else{
+			console.log('found user: ' + user.id);
+			// res.render('./table', {user: user});
+			res.render('./index', {user: user});
+		}
+  });
 });
 
 
@@ -37,27 +37,27 @@ router.get('/register', function(req, res){
 
 router.post('/register', function(req, res) {
 
-    var newUser  = new User({username : req.body.username}),
-        password = req.body.password;
+  var newUser  = new User({username : req.body.username}),
+    password = req.body.password;
 
-    User.register(newUser, password, function(err,user){
-        if(err){
-            console.log('Failed to register user...');
-            console.log(err);
-            req.flash('error', err.message);
-            return res.render('index');
-        }
-        else{
-            console.log('user registered successfully...');
-            console.log('user.username: ' + user.username);
-            console.log('user LOOKING FOR ID: ' + user._id);
-            // uses the flash container in index.ejs
-            req.flash('success', 'Welcome, ' + user.username + '!');
+  User.register(newUser, password, function(err,user){
+    if(err){
+      console.log('Failed to register user...');
+      console.log(err);
+      req.flash('error', err.message);
+      return res.render('index');
+    }
+    else{
+      console.log('user registered successfully...');
+      console.log('user.username: ' + user.username);
+      console.log('user LOOKING FOR ID: ' + user._id);
+      // uses the flash container in index.ejs
+      req.flash('success', 'Welcome, ' + user.username + '!');
 
-            res.redirect('/');
-            // res.redirect('/users/' + user._id);
-        }
-    });
+      res.redirect('/');
+      // res.redirect('/users/' + user._id);
+    }
+  });
 });
 
 // LOGIN

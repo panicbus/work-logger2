@@ -52,10 +52,8 @@ module.exports = function(app){
 		// error cases
 		if (!req.params.entry_id)
 	  return res.status(400).send('an entry_id must be provided');
-		// if (!req.body.username)
-	 //  return res.status(400).send('username must be provided');
 		// if (!req.body.date)
-	 //  return res.status(400).send('date must be provided');
+	  // return res.status(400).send('date must be provided');
 		if (!req.body.hours)
 	  return res.status(400).send('hours field can\'t be blank');
 		if (!req.body.payout)
@@ -66,7 +64,7 @@ module.exports = function(app){
 	 //  return res.status(400).send('income must be provided');
 
 	  var updateData = {
-		  date: req.body.date,
+		  // date: req.body.date,
 		  hours: req.body.hours,
 		  payout: req.body.payout,
 		  tips: req.body.tips
@@ -130,15 +128,12 @@ module.exports = function(app){
 
 	// method to attemp to remove the entry from user NOT FUKING WORKING
 	app.delete('/api/user', function(req, res){
-		console.log('----the req.user from USER in delete: ' + req.user.id);
 		console.log('----the req.user.entries from USER in delete: ' + req.user.entries);
 		console.log('----the req.user._id from USER in delete: ' + req.user._id);
 		User.findById(req.user._id).populate('entries').exec(function(err, user){
 			if (err) {
 				throw err
 			} else {
-				console.log('user ****==: ' + user);
-				console.log('user.entries ****==: ' + user.entries);
 				console.log('user.entries delete ran: ' + user.entries.id);
 				User.findByIdAndRemove(user.entries.id);
 			}

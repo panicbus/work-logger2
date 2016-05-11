@@ -86,7 +86,7 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 	$scope.saveUpdate = function(id, index, entry){
 		// and pass it into the post request
 		$http.post('/api/entry/' + id, {
-				// date: entry.date,
+				// date: entry.createdAt,
 				hours: entry.hours,
 				payout: entry.payout,
 				tips: entry.tips,
@@ -97,7 +97,6 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 			})
 			.catch(function(err){
 				alert('There was a problem saving your entry: ' + err.data);
-				console.log('There was a problem saving your entry: ' + err.data);
 			});
 		$scope.editMode[index] = false;
 		// then update page with remaining entries
