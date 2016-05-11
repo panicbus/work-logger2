@@ -43,7 +43,7 @@ input {
 .username, .password {
   padding: 5px; }
   .username input, .password input {
-    padding: 12px;
+    padding: 8px 10px;
     font-size: 20px; }
 
 .login-lable {
@@ -53,16 +53,17 @@ input {
 .welcome-splash {
   text-align: center;
   width: 60%;
-  background: lightgreen;
-  color: #fff;
+  background: #bbeeaa;
+  color: #666;
   font-size: 22px;
   padding: 20px;
   margin: 30px auto; }
   .welcome-splash a {
-    color: #fff;
+    transition: color 0.3s ease;
+    color: #666;
     text-decoration: underline; }
     .welcome-splash a:hover {
-      color: #ccc; }
+      color: #888; }
 
 /*// TABLE PAGE //*/
 .calculations-box {
@@ -70,19 +71,32 @@ input {
   padding: 20px;
   background: seagreen;
   color: #fff;
-  font-size: 20px;
+  font-size: 18px;
   margin: 40px auto; }
   .calculations-box p {
     text-align: center; }
+  .calculations-box .calc-label {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold; }
+  .calculations-box .tips-box, .calculations-box .earnings-box {
+    display: inline-block; }
+  .calculations-box .miles-calculation .miles-month p {
+    padding-right: 15px;
+    text-align: right; }
+  .calculations-box .miles-calculation .miles-total p {
+    padding-left: 15px;
+    text-align: left; }
+  .calculations-box .row {
+    margin: 0 25px; }
+  .calculations-box .row + .row {
+    border-top: 2px solid #ccc; }
 
 .column-index {
   width: 2%; }
 
-.column-body {
-  width: 15%; }
-
 .column-data {
-  width: 10%; }
+  width: 8%; }
 
 .column-btns {
   width: 10%; }
@@ -91,7 +105,7 @@ input {
   margin-right: 10px; }
 
 .back-link {
-  padding-left: 15px; }
+  padding: 0 15px 80px 0; }
 
 .to-table {
   font-size: 20px;
@@ -100,8 +114,11 @@ input {
 .right-option {
   float: right; }
 
+.table-head {
+  background: #bbeeaa; }
+
 .table-striped {
-  background-color: lightgreen; }
+  background: #d6f4cc; }
 
 /* error messages */
 .login-message {

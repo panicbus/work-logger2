@@ -23,32 +23,58 @@
 
   <div class="calculations-box" ng-cloak>
   	<div class="row">
-			<div class="monthly-tips col-xs-6 col-md-3">
-				<p>Tips this Month</p>
-				<p>${{ getMonthlyTips() }}</p>
-			</div>
-			<div class="alltime-tips col-xs-6 col-md-3">
-				<p>Tips All-Time</p>
-				<p>${{ getTotalTips() }}</p>
-			</div>
-			<div class="monthly-earnings col-xs-6 col-md-3">
-				<p>Earnings This Month</p>
-				<p>${{ getMonthlyEarnings() }} </p>
-			</div>
-			<div class="alltime-earnings col-xs-6 col-md-3">
-				<p>Earnings All-Time</p>
-				<p>${{ getTotalEarnings() }}</p>
-			</div>
+  		<div class="tips-box col-xs-12 col-md-6">
+  			<div class="tips-label calc-label">
+  				<p>Tips</p>
+  			</div>
+				<div class="monthly-tips col-xs-6">
+					<p>This month</p>
+					<p>${{ getMonthlyTips() }}</p>
+				</div>
+				<div class="alltime-tips col-xs-6">
+					<p>All time</p>
+					<p>${{ getTotalTips() }}</p>
+				</div>
+  		</div>
+  		<div class="earnings-box col-xs-12 col-md-6">
+  			<div class="tips-label calc-label">
+  				<p>Earnings</p>
+  			</div>
+				<div class="monthly-earnings col-xs-6">
+					<p>This month</p>
+					<p>${{ getMonthlyEarnings() }} </p>
+				</div>
+				<div class="alltime-earnings col-xs-6">
+					<p>All time</p>
+					<p>${{ getTotalEarnings() }}</p>
+				</div>
+  		</div>
 		</div>
+  	<div class="row">
+  		<div class="miles-label calc-label">
+  			Miles
+  		</div>
+  		<div class="miles-calculation">
+  			<div class="miles-month col-xs-6">
+  				<p>This month</p>
+  				<p>{{ getMonthlyMiles() }}</p>
+  			</div>
+  			<div class="miles-total col-xs-6">
+  				<p>Total</p>
+  				<p>{{ getTotalMiles() }}</p>
+  				</div>
+  		</div>
+  	</div>
   </div>
 
 
 	<table class="table table-bordered table-striped" ng-init="getEntries()">
 		<thead>
-			<tr>
+			<tr class="table-head">
 				<th class="column-index">#</th>
 				<th class="column-data">Date</th>
-				<th class="column-data">Hours Logged</th>
+				<th class="column-data">Miles</th>
+				<th class="column-data">Time Logged</th>
 				<th class="column-data">Payout</th>
 				<th class="column-data">Tips</th>
 				<th class="column-data">Total income</th>
@@ -71,6 +97,10 @@
 				<input ng-show="editMode[$index]" type="text" ng-model="entry.hours"/>
 			</td>
 			<td class="column-data" ng-click="editEntry($index)">
+				<span ng-show="!editMode[$index]">{{ entry.miles }}</span>
+				<input ng-show="editMode[$index]" type="text" ng-model="entry.miles"/>
+			</td>
+			<td class="column-data" ng-click="editEntry($index)">
 				<span ng-show="!editMode[$index]">{{ entry.payout }}</span>
 				<input ng-show="editMode[$index]" type="text" ng-model="entry.payout"/>
 			</td>
@@ -83,13 +113,11 @@
 				<span>{{ entry.payout--entry.tips }}</span>
 			</td>
 			<td class="column-btns">
-
 				<button ng-show="!editMode[$index]" type="submit" class="btn btn-primary delete-btn" ng-click="deleteEntry(entry._id)">Delete</button>
 				<button ng-show="!editMode[$index]" type="submit" class="btn btn-primary edit-btn" ng-click="editEntry($index)">Edit</button>
 
 				<button ng-show="editMode[$index]" type="submit" class="btn btn-secondary edit-btn" ng-click="saveUpdate(entry._id, $index, entry)">Update</button>
 				<button ng-show="editMode[$index]" type="submit" class="btn btn-secondary edit-btn" ng-click="cancelUpdate($index)">Cancel</button>
-
 			</td>
 		</tr>
 	</table>

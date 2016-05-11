@@ -42,7 +42,6 @@ app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 app.use(methodOverride("_method"));
 
 
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -76,8 +75,7 @@ app.use(userRoutes);
 // render the main page
 app.get('/', function(req, res){
   res.render('index');
-})
-// render the success('table') page
+});
 
 
 mongoose.connect(config.getDbConnectionString());

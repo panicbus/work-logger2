@@ -56,6 +56,8 @@ module.exports = function(app){
 	  // return res.status(400).send('date must be provided');
 		if (!req.body.hours)
 	  return res.status(400).send('hours field can\'t be blank');
+		if (!req.body.miles)
+	  return res.status(400).send('miles field must be provided');
 		if (!req.body.payout)
 	  return res.status(400).send('payout must be provided');
 		if (!req.body.tips)
@@ -64,7 +66,8 @@ module.exports = function(app){
 	 //  return res.status(400).send('income must be provided');
 
 	  var updateData = {
-		  // date: req.body.date,
+		  date: req.body.date,
+		  miles: req.body.miles,
 		  hours: req.body.hours,
 		  payout: req.body.payout,
 		  tips: req.body.tips

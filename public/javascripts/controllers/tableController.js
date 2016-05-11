@@ -37,7 +37,6 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 		    return monthlyTips.toFixed(2);
 			}
 
-
 			// add results by earnings + tips
 			$scope.getTotalEarnings = function(){
 				var totalPayout = 0;
@@ -48,7 +47,7 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 		    return totalPayout.toFixed(2);
 			}
 
-			// add results by tips
+			// add all tips
 			$scope.getTotalTips = function(){
 				var totalTips = 0;
 				for(var i = 0; i < $scope.entries.length; i++){
@@ -56,6 +55,32 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 	        totalTips += (entry.tips);
 		    }
 		    return totalTips.toFixed(2);
+			}
+
+			// add miles by current month
+			$scope.getMonthlyMiles = function(monthlyMiles){
+				var monthlyMiles = 0;
+		    var filter = filterBy = $filter('filter');
+		    var dateFilter = $filter('date');
+		    var thisMonth = dateFilter(new Date(), 'MM');
+
+		    $scope.filteredMonthEntries = filter($scope.entries, {createdAt: thisMonth})
+
+				for(var i = 0; i < $scope.filteredMonthEntries.length; i++){
+				  var entry = $scope.filteredMonthEntries[i];
+	        monthlyMiles += (entry.miles);
+		    }
+		    return monthlyMiles;
+			}
+
+			// add all miles
+			$scope.getTotalMiles = function(){
+				var totalMiles = 0;
+				for(var i = 0; i < $scope.entries.length; i++){
+				  var entry = $scope.entries[i];
+	        totalMiles += (entry.miles);
+		    }
+		    return totalMiles;
 			}
 
 		}); // end http.get req to api
@@ -88,6 +113,7 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 		$http.post('/api/entry/' + id, {
 				// date: entry.createdAt,
 				hours: entry.hours,
+				miles: entry.miles,
 				payout: entry.payout,
 				tips: entry.tips,
 				income: entry.income
