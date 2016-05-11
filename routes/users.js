@@ -66,6 +66,7 @@ router.get('/login', function(req, res) {
 });
 
 router.post('/login', authMiddleware, function(req, res){
+    req.flash('success', 'Welcome back, ' + req.user.username + '!');
     res.redirect('/users/' + req.user._id);
 });
 
