@@ -83,6 +83,24 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 		    return totalMiles;
 			}
 
+			// add wages per hour by current month
+			$scope.getMonthlyPerHour = function(monthlyPerHour){
+				var monthlyPerHour = 0;
+		    var filter = filterBy = $filter('filter');
+		    var dateFilter = $filter('date');
+		    var thisMonth = dateFilter(new Date(), 'MM');
+
+		    $scope.filteredMonthEntries = filter($scope.entries, {createdAt: thisMonth})
+
+				for(var i = 0; i < $scope.filteredMonthEntries.length; i++){
+				  var entry = $scope.filteredMonthEntries[i];
+	        monthlyPerHour += ((entry.payout + entry.tips) / (entry.hours));
+		    }
+		    var n = Math.ceil(monthlyPerHour);
+		    return n;
+			}
+
+
 		}); // end http.get req to api
 
 	}, function(error){

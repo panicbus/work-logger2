@@ -22,49 +22,63 @@
   </div>
 
   <div class="calculations-box" ng-cloak>
-  	<div class="row">
-  		<div class="tips-box col-xs-12 col-md-6">
-  			<div class="tips-label calc-label">
-  				<p>Tips</p>
-  			</div>
-				<div class="monthly-tips col-xs-6">
-					<p>This month</p>
-					<p>${{ getMonthlyTips() }}</p>
+		<div class="row">
+			<div class="text-container col-xs-12 col-md-9">
+				<div class="row">
+		  		<div class="tips-box col-xs-12 col-md-6">
+		  			<div class="calc-label">
+		  				<p>Tips</p>
+		  			</div>
+						<div class="monthly-tips col-xs-6">
+							<p>This month</p>
+							<p>${{ getMonthlyTips() }}</p>
+						</div>
+						<div class="alltime-tips col-xs-6">
+							<p>All time</p>
+							<p>${{ getTotalTips() }}</p>
+						</div>
+		  		</div>
+		  		<div class="earnings-box col-xs-12 col-md-6">
+		  			<div class="tips-label calc-label">
+		  				<p>Earnings</p>
+		  			</div>
+						<div class="monthly-earnings col-xs-6">
+							<p>This month</p>
+							<p>${{ getMonthlyEarnings() }} </p>
+						</div>
+						<div class="alltime-earnings col-xs-6">
+							<p>All time</p>
+							<p>${{ getTotalEarnings() }}</p>
+						</div>
+		  		</div>
 				</div>
-				<div class="alltime-tips col-xs-6">
-					<p>All time</p>
-					<p>${{ getTotalTips() }}</p>
+		  	<div class="row">
+		  		<div class="miles-box col-xs-12">
+			  		<div class="calc-label">
+			  			Miles
+			  		</div>
+			  		<div class="miles-calculation">
+			  			<div class="miles-month col-xs-6">
+			  				<p>This month</p>
+			  				<p>{{ getMonthlyMiles() }}</p>
+			  			</div>
+			  			<div class="miles-total col-xs-6">
+			  				<p>Total</p>
+			  				<p>{{ getTotalMiles() }}</p>
+			  			</div>
+		  			</div>
+		  		</div>
+		  	</div>
+	  	</div>
+	  	<div class="chart-container col-xs-12 col-md-3">
+				<div class="chart-label">
+					Earnings per hour this month
 				</div>
-  		</div>
-  		<div class="earnings-box col-xs-12 col-md-6">
-  			<div class="tips-label calc-label">
-  				<p>Earnings</p>
-  			</div>
-				<div class="monthly-earnings col-xs-6">
-					<p>This month</p>
-					<p>${{ getMonthlyEarnings() }} </p>
+				<div class="col-xs-12">
+					<p>${{ getMonthlyPerHour() }}</p>
 				</div>
-				<div class="alltime-earnings col-xs-6">
-					<p>All time</p>
-					<p>${{ getTotalEarnings() }}</p>
-				</div>
-  		</div>
+			</div>
 		</div>
-  	<div class="row">
-  		<div class="miles-label calc-label">
-  			Miles
-  		</div>
-  		<div class="miles-calculation">
-  			<div class="miles-month col-xs-6">
-  				<p>This month</p>
-  				<p>{{ getMonthlyMiles() }}</p>
-  			</div>
-  			<div class="miles-total col-xs-6">
-  				<p>Total</p>
-  				<p>{{ getTotalMiles() }}</p>
-  				</div>
-  		</div>
-  	</div>
   </div>
 
 

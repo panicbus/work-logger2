@@ -71,7 +71,7 @@ app.use(function(req, res, next){
 // app.use(indexRoutes);
 app.use(userRoutes);
 
-
+// TODO: can i remove?
 // render the main page
 app.get('/', function(req, res){
   res.render('index');
@@ -84,6 +84,7 @@ htmlController(app);
 setupController(app);
 apiController(app);
 
+// TODO: re-add?
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
 //   var err = new Error('Not Found');

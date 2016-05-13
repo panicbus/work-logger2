@@ -8,7 +8,7 @@ var express    = require('express'),
 
 var authMiddleware = passport.authenticate('local', {failureRedirect:'/login'});
 
-
+// TODO: remove?
 // router.get('/users', function(req, res) {
 //     res.render('index');
 // });
