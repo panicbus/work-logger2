@@ -21,7 +21,7 @@ app.controller('chartController', ['$scope', '$http', '$resource', '$filter', fu
 			    var dividedTotal = monthlyPerHour / $scope.filteredMonthEntries.length;
 			    var n = Math.ceil(dividedTotal);
 
-				  var pieData = [
+				  var doughnutData = [
 				     {
 				        value: n,
 				        label: 'Per hour',
@@ -29,13 +29,12 @@ app.controller('chartController', ['$scope', '$http', '$resource', '$filter', fu
 				     },
 				     {
 				        value: 30 - n,
-				        label: 'nothing',
 				        color: '#9CBABA'
 				     }
 				  ];
-				  var canvas = document.getElementById("canvasEl");
+				  var canvas = document.getElementById('canvasEl');
 					var context = canvas.getContext('2d');
-				  var skillsChart = new Chart(context).Pie(pieData);
+				  new Chart(context).Doughnut(doughnutData);
 				};
 			})
 		};
