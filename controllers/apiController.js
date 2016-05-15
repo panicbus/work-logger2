@@ -77,7 +77,7 @@ module.exports = function(app){
 	    if (err)
 	      return res.status(500).send(err)
 
-	    return res.status(200).send('Successs bitch!');
+	    return res.status(200).send('Update was successful!');
 	  })
 	});
 

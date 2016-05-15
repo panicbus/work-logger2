@@ -18,7 +18,8 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 				  var entry = $scope.filteredMonthEntries[i];
 	        monthlyEarnings += (entry.payout + entry.tips);
 		    }
-		    return monthlyEarnings.toFixed(2);
+		    var moEarns = parseFloat(monthlyEarnings).toFixed(2);
+		    return moEarns;
 			}
 
 			// filter by current month then add results by tips
@@ -34,7 +35,8 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 				  var entry = $scope.filteredMonthEntries[i];
 	        monthlyTips += (entry.tips);
 		    }
-		    return monthlyTips.toFixed(2);
+		    var moTips = parseFloat(monthlyTips).toFixed(2);
+		    return moTips;
 			}
 
 			// add results by earnings + tips
@@ -44,7 +46,8 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 	        var entry = $scope.entries[i];
 	        totalPayout += (entry.payout + entry.tips);
 		    }
-		    return totalPayout.toFixed(2);
+		    var totPayout = parseFloat(totalPayout).toFixed(2);
+		    return totPayout;
 			}
 
 			// add all tips
@@ -54,7 +57,8 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 				  var entry = $scope.entries[i];
 	        totalTips += (entry.tips);
 		    }
-		    return totalTips.toFixed(2);
+		    var totTips = parseFloat(totalTips).toFixed(2);
+		    return totTips;
 			}
 
 			// add miles by current month
@@ -83,23 +87,7 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 		    return totalMiles;
 			}
 
-			// add wages per hour by current month
-			$scope.getMonthlyPerHour = function(monthlyPerHour){
-				var monthlyPerHour = 0;
-		    var filter = filterBy = $filter('filter');
-		    var dateFilter = $filter('date');
-		    var thisMonth = dateFilter(new Date(), 'MM');
-
-		    $scope.filteredMonthEntries = filter($scope.entries, {createdAt: thisMonth})
-
-				for(var i = 0; i < $scope.filteredMonthEntries.length; i++){
-				  var entry = $scope.filteredMonthEntries[i];
-	        monthlyPerHour += ((entry.payout + entry.tips) / (entry.hours));
-		    }
-		    var n = Math.ceil(monthlyPerHour);
-		    return n;
-			}
-
+			// Average wages per hour function is located in chartController
 
 		}); // end http.get req to api
 

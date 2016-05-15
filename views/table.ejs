@@ -70,12 +70,15 @@
 		  		</div>
 		  	</div>
 	  	</div>
-	  	<div class="chart-container col-xs-12 col-md-3">
-				<div class="chart-label">
-					Earnings per hour this month
-				</div>
-				<div class="col-xs-12">
-					<p>${{ getMonthlyPerHour() }}</p>
+	  	<div ng-controller="chartController as vm">
+		  	<div class="chart-container col-xs-12 col-md-3" ng-init="addChart()">
+					<div class="chart-label">
+						Earnings per hour this month
+					</div>
+					<div class="col-xs-12">
+						<p>{{ getMonthlyPerHour() }}</p>
+						<canvas id="canvasEl" ng-init="getEntriesForChart()"></canvas>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -152,6 +155,9 @@
 	<script src="javascripts/app.js"></script>
 	<script src="javascripts/fade.js"></script>
 	<script src="javascripts/controllers/tableController.js"></script>
+	<script src="javascripts/controllers/chartController.js"></script>
+
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
 
 </body>
 </html>
