@@ -18,6 +18,7 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 				  var entry = $scope.filteredMonthEntries[i];
 	        monthlyEarnings += (entry.payout + entry.tips);
 		    }
+		    // because just .toFixed() only works with a number - need to parse the float
 		    var moEarns = parseFloat(monthlyEarnings).toFixed(2);
 		    return moEarns;
 			}

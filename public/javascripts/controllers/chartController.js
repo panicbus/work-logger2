@@ -13,28 +13,29 @@ app.controller('chartController', ['$scope', '$http', '$resource', '$filter', fu
 			    var thisMonth = dateFilter(new Date(), 'MM');
 
 			    $scope.filteredMonthEntries = filter($scope.entries, {createdAt: thisMonth})
-			    console.log('filteredMonthEntries.length' + $scope.filteredMonthEntries.length)
-					for(var i = 0; i < $scope.filteredMonthEntries.length; i++){
+
+			    for(var i = 0; i < $scope.filteredMonthEntries.length; i++){
 					  var entry = $scope.filteredMonthEntries[i];
 		        monthlyPerHour += ((entry.payout + entry.tips) / (entry.hours));
 			    }
 			    var dividedTotal = monthlyPerHour / $scope.filteredMonthEntries.length;
 			    var n = Math.ceil(dividedTotal);
 
-				  var doughnutData = [
-				     {
-				        value: n,
-				        label: 'Per hour',
-				        color: '#1abc9c'
-				     },
-				     {
-				        value: 30 - n,
-				        color: '#9CBABA'
-				     }
+				  var donutData = [
+						{
+						  value: n,
+						  label: 'Per hour',
+						  color: '#1abc9c'
+						},
+						{
+						  value: 30 - n,
+						  color: '#2E8B57'
+						}
 				  ];
+
 				  var canvas = document.getElementById('canvasEl');
 					var context = canvas.getContext('2d');
-				  new Chart(context).Doughnut(doughnutData);
+				  new Chart(context).Doughnut(donutData, {segmentStrokeColor: 'rgba(255, 255, 255, 0)'});
 				};
 			})
 		};
