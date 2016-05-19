@@ -79,9 +79,17 @@ input {
   .calculations-box .calc-label {
     text-align: center;
     font-size: 30px;
-    font-weight: bold; }
+    font-weight: bold;
+    color: #ccffcc; }
   .calculations-box .tips-box, .calculations-box .earnings-box {
     display: inline-block; }
+  .calculations-box .all-time, .calculations-box .monthly {
+    height: 100px; }
+    .calculations-box .all-time p:last-child, .calculations-box .monthly p:last-child {
+      color: #ccffcc;
+      font-size: 22px; }
+  .calculations-box .all-time.tips p:last-child, .calculations-box .all-time.earnings p:last-child {
+    margin-top: 35px; }
   .calculations-box .chart-container .chart-label {
     text-align: center;
     font-size: 20px; }

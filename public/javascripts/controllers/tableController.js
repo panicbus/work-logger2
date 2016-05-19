@@ -18,11 +18,19 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 				  var entry = $scope.filteredMonthEntries[i];
 	        monthlyEarnings += (entry.payout + entry.tips);
 		    }
-		    // because just .toFixed() only works with a number - need to parse the float
-		    var moEarns = parseFloat(monthlyEarnings).toFixed(2);
-		    return moEarns;
+		    return monthyEarnings.toFixed(2);
 			}
 
+
+			// add results by earnings + tips
+			$scope.getTotalEarnings = function(){
+				var totalPayout = 0;
+		    for(var i = 0; i < $scope.entries.length; i++){
+	        var entry = $scope.entries[i];
+	        totalPayout += (entry.payout + entry.tips);
+		    }
+		    return totalPayout.toFixed(2);
+			}
 			// filter by current month then add results by tips
 			$scope.getMonthlyTips = function(monthlyTips){
 				var monthlyTips = 0;
@@ -36,19 +44,7 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 				  var entry = $scope.filteredMonthEntries[i];
 	        monthlyTips += (entry.tips);
 		    }
-		    var moTips = parseFloat(monthlyTips).toFixed(2);
-		    return moTips;
-			}
-
-			// add results by earnings + tips
-			$scope.getTotalEarnings = function(){
-				var totalPayout = 0;
-		    for(var i = 0; i < $scope.entries.length; i++){
-	        var entry = $scope.entries[i];
-	        totalPayout += (entry.payout + entry.tips);
-		    }
-		    var totPayout = parseFloat(totalPayout).toFixed(2);
-		    return totPayout;
+		    return monthlyTips.toFixed(2);
 			}
 
 			// add all tips
@@ -58,8 +54,7 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 				  var entry = $scope.entries[i];
 	        totalTips += (entry.tips);
 		    }
-		    var totTips = parseFloat(totalTips).toFixed(2);
-		    return totTips;
+		    return totalTips.toFixed(2);
 			}
 
 			// add miles by current month

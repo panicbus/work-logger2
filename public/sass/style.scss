@@ -89,9 +89,22 @@ input {
 		text-align: center;
 		font-size: 30px;
 		font-weight: bold;
+		color: #ccffcc;
 	}
 	.tips-box, .earnings-box {
 		display: inline-block;
+	}
+	.all-time, .monthly {
+		height: 100px;
+		p:last-child {
+			color: #ccffcc;
+	    font-size: 22px;
+		}
+	}
+	.all-time.tips, .all-time.earnings {
+		p:last-child {
+			margin-top: 35px;
+		}
 	}
 	.chart-container {
     // transform: translateY(25%);
