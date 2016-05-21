@@ -7,7 +7,7 @@ section {
 	padding: 15px 50px 30px;
 }
 a {
-  color: #00B7FF;
+  color: #777777 !important;
 }
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none !important;
@@ -16,6 +16,14 @@ input {
   padding: 5px;
   width: 100%;
 }
+
+/// MIXINS ///
+@mixin box-shadow($top, $left, $blur, $spread, $color) {
+	-webkit-box-shadow: $top $left $blur $spread $color;
+	-moz-box-shadow: $top $left $blur $spread $color;
+	box-shadow: $top $left $blur $spread $color;
+}
+
 
 /*/// NAV STUFF ///*/
 .navbar {
@@ -26,6 +34,9 @@ input {
 .navbar-right {
 	margin-right: 0 !important;
 	padding: 23px 15px 0 0;
+	a {
+		color: #777 !important;
+	}
 }
 .navbar-text {
 	margin-top: 0 !important;
@@ -62,6 +73,7 @@ input {
 	font-size: 22px;
 	padding: 20px;
 	margin: 30px auto;
+	@include box-shadow(0, 3px, 10px, 0, rgba(0,0,0,0.35));
 	a {
 		transition: color 0.3s ease;
 		color: #666;
@@ -82,6 +94,7 @@ input {
 	font-size: 18px;
 	margin: 40px auto;
 	position: relative;
+	@include box-shadow(0, 3px, 10px, 0, rgba(0,0,0,0.35));
 	p {
 		text-align: center;
 	}
@@ -134,13 +147,16 @@ input {
 }
 .column-btns {
 	width: 10%;
+	.btn {
+		padding: 3px 13px !important;
+	}
 }
 .delete-btn {
 	margin-right: 10px;
 }
 
 .back-link {
-	padding: 0 15px 80px 0;
+	padding: 0 15px 80px 15px;
 }
 .to-table {
 	font-size: 20px;
@@ -174,6 +190,4 @@ input {
 	margin: 0 auto;
 	text-align: center;
 }
-
-
 

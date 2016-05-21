@@ -1,3 +1,5 @@
+// JUST FOR ADDING DUMMY DATA
+
 // go up 2 levels
 var Entries = require('../models/entryModel');
 

@@ -18,7 +18,7 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 				  var entry = $scope.filteredMonthEntries[i];
 	        monthlyEarnings += (entry.payout + entry.tips);
 		    }
-		    return monthyEarnings.toFixed(2);
+		    return monthlyEarnings.toFixed(2);
 			}
 
 

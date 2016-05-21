@@ -7,7 +7,7 @@ section {
   padding: 15px 50px 30px; }
 
 a {
-  color: #00B7FF; }
+  color: #777777 !important; }
 
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none !important; }
@@ -25,6 +25,8 @@ input {
 .navbar-right {
   margin-right: 0 !important;
   padding: 23px 15px 0 0; }
+  .navbar-right a {
+    color: #777 !important; }
 
 .navbar-text {
   margin-top: 0 !important; }
@@ -57,7 +59,10 @@ input {
   color: #666;
   font-size: 22px;
   padding: 20px;
-  margin: 30px auto; }
+  margin: 30px auto;
+  -webkit-box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.35);
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.35); }
   .welcome-splash a {
     transition: color 0.3s ease;
     color: #666;
@@ -73,7 +78,10 @@ input {
   color: #fff;
   font-size: 18px;
   margin: 40px auto;
-  position: relative; }
+  position: relative;
+  -webkit-box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.35);
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.35); }
   .calculations-box p {
     text-align: center; }
   .calculations-box .calc-label {
@@ -108,12 +116,14 @@ input {
 
 .column-btns {
   width: 10%; }
+  .column-btns .btn {
+    padding: 3px 13px !important; }
 
 .delete-btn {
   margin-right: 10px; }
 
 .back-link {
-  padding: 0 15px 80px 0; }
+  padding: 0 15px 80px 15px; }
 
 .to-table {
   font-size: 20px;

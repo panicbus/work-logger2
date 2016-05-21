@@ -3,17 +3,11 @@ var express    = require('express'),
   passport     = require('passport'),
   User         = require('../models/user'),
   isLoggedIn   = require("../middleware/isLoggedIn"),
-  bodyParser   = require('body-parser'),
-  isRegistered = require("../middleware/isRegistered");
+  bodyParser   = require('body-parser');
 
 var authMiddleware = passport.authenticate('local', {failureRedirect:'/login'});
 
-// TODO: remove?
-// router.get('/users', function(req, res) {
-//     res.render('index');
-// });
-
-router.get('/users/:id', isLoggedIn, function(req, res) {
+router.get('/users/:id', function(req, res) {
 	console.log(req.params.id)
       // TODO: /userController doesn't exist anymore!!
   User.findById({ _id: req.params.id }).exec(function(err, user) {

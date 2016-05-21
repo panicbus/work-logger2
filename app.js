@@ -71,7 +71,6 @@ app.use(function(req, res, next){
 // app.use(indexRoutes);
 app.use(userRoutes);
 
-// TODO: can i remove?
 // render the main page
 app.get('/', function(req, res){
   res.render('index');

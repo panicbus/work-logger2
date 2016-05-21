@@ -12,7 +12,7 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 		    var dateFilter = $filter('date');
 		    var thisMonth = dateFilter(new Date(), 'MM');
 
-		    $scope.filteredMonthEntries = filter($scope.entries, {createdAt: thisMonth})
+		    $scope.filteredMonthEntries = filter($scope.entries, {createdAt: thisMonth});
 
 				for(var i = 0; i < $scope.filteredMonthEntries.length; i++){
 				  var entry = $scope.filteredMonthEntries[i];
@@ -28,7 +28,7 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 		    var dateFilter = $filter('date');
 		    var thisMonth = dateFilter(new Date(), 'MM');
 
-		    $scope.filteredMonthEntries = filter($scope.entries, {createdAt: thisMonth})
+		    $scope.filteredMonthEntries = filter($scope.entries, {createdAt: thisMonth});
 
 				for(var i = 0; i < $scope.filteredMonthEntries.length; i++){
 				  var entry = $scope.filteredMonthEntries[i];

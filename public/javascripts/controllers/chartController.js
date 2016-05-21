@@ -33,26 +33,10 @@ app.controller('chartController', ['$scope', '$http', '$resource', '$filter', fu
 						}
 				  ];
 
-				  // var options =
-			   //  {
-			   //      tooltipTemplate: "<%= value %>",
-
-			   //      onAnimationComplete: function()
-			   //      {
-			   //          this.showTooltip(this.segments, true);
-			   //      },
-
-			   //      tooltipEvents: [],
-
-			   //      showTooltips: true
-			   //  }
-
-
 				  var canvas = document.getElementById('canvasEl');
 					var context = canvas.getContext('2d');
 					var myChart = new Chart(context);
 				  myChart.Doughnut(donutData, {segmentStrokeColor: 'rgba(255, 255, 255, 0)'});
-				  // myChart.update();
 				};
 			})
 		};
