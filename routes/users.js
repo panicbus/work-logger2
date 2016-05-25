@@ -54,13 +54,14 @@ router.post('/register', function(req, res) {
   });
 });
 
-// LOGIN
+//  LOGIN
 router.get('/login', function(req, res) {
     res.render('auth/login');
 });
 
 router.post('/login', authMiddleware, function(req, res){
     req.flash('success', 'Welcome back, ' + req.user.username + '!');
+    // req.flash('error', 'There was an error logging in.' );
     res.redirect('/users/' + req.user._id);
 });
 

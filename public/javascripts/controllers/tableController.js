@@ -18,7 +18,8 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 				  var entry = $scope.filteredMonthEntries[i];
 	        monthlyEarnings += (entry.payout + entry.tips);
 		    }
-		    return monthlyEarnings.toFixed(2);
+		    var monthlyEarningsNumber = parseFloat(monthlyEarnings.toFixed(2));
+		    return monthlyEarningsNumber;
 			}
 
 
@@ -29,8 +30,10 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 	        var entry = $scope.entries[i];
 	        totalPayout += (entry.payout + entry.tips);
 		    }
-		    return totalPayout.toFixed(2);
+		    var totalPayoutNumber = parseFloat(totalPayout.toFixed(2));
+		    return totalPayoutNumber;
 			}
+
 			// filter by current month then add results by tips
 			$scope.getMonthlyTips = function(monthlyTips){
 				var monthlyTips = 0;
@@ -44,7 +47,8 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 				  var entry = $scope.filteredMonthEntries[i];
 	        monthlyTips += (entry.tips);
 		    }
-		    return monthlyTips.toFixed(2);
+		    var monthlyTipsNumber = parseFloat(monthlyTips.toFixed(2));
+		    return monthlyTipsNumber;
 			}
 
 			// add all tips
@@ -54,7 +58,8 @@ app.controller('tableController', ['$scope', '$http', '$resource', '$filter', fu
 				  var entry = $scope.entries[i];
 	        totalTips += (entry.tips);
 		    }
-		    return totalTips.toFixed(2);
+		    var totalTipsNumber = parseFloat(totalTips.toFixed(2));
+		    return totalTipsNumber;
 			}
 
 			// add miles by current month

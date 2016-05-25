@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html ng-app="workLogger">
+<html>
 <head>
 	<title>Work Logger Sign In</title>
-		<link href='https://fonts.googleapis.com/css?family=Work+Sans' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link href='https://fonts.googleapis.com/css?family=Work+Sans' rel='stylesheet' type='text/css'>
 </head>
-<body ng-controller="mainController as vm">
+
 <%include ../partials/header %>
+
+<body>
 
 	<!-- error messages container -->
 	<div class="flash-container">
@@ -45,6 +47,10 @@
 	<!-- Load jQuery and Bootstrap -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<!-- Load Angular -->
+	<script src="//code.angularjs.org/1.3.0-rc.2/angular.min.js"></script>
+  <script src="//code.angularjs.org/1.3.0-rc.2/angular-resource.min.js"></script>
 
 	<script src="javascripts/app.js"></script>
 	<script src="javascripts/fade.js"></script>
