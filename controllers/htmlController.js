@@ -65,8 +65,8 @@ module.exports = function(app) {
 						user.save();
 					}
 				})
-					// navigate to /table url - then node will run the app.get('/table') from above
 					req.flash('success', 'Entry successfully created!');
+					// navigate to /table url - then node will run the app.get('/table') from above
 					res.redirect('/table');
 			} // end first else statement
 		}); // end User.findById
@@ -89,29 +89,5 @@ module.exports = function(app) {
 	// 		res.render('table');
 	// 	});
 	// });
-
-	// NOT NECESSARY?
-	app.delete('/table', function(req, res){
-	  function renderTable(res, data){
-	    res.render('table', {user:data['user'], entries:data['entries']});
-	  }
-	  console.log("------------currentUser in delete ---" + req.user)
-	  User.findById(req.user._id, function(err, user){
-	    if(err){
-	      console.log(err)
-	    } else {
-	      Entries.find(function(err, entries){
-	        if (err) {
-	          console.log('entries.find err: ' + err)
-	        } else {
-	          console.log('**found entries**: ' + entries)
-	          renderTable(res, {user: user, entries: entries});
-	        } // end else 2
-
-	      }) // end Entries.find
-	    } // end else 1
-	  }) // end .exec
-	});
-
 
 }

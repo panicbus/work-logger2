@@ -1,6 +1,8 @@
 var Entries = require('../models/entryModel');
 var User = require('../models/user');
 var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
 
 // export from this js file endpoints
 module.exports = function(app){
@@ -48,7 +50,7 @@ module.exports = function(app){
 
 
 	// UPDATE ENTRY
-	app.post('/api/entry/:entry_id', function(req, res){
+	app.post('/api/entry/:entry_id', urlencodedParser, function(req, res){
 		// error cases
 		if (!req.params.entry_id)
 	  return res.status(400).send('an entry_id must be provided');
@@ -74,11 +76,18 @@ module.exports = function(app){
 		  // income: req.body.income
 	  };
 	  Entries.findByIdAndUpdate(req.params.entry_id, updateData, function(err, entry){
-	    if (err)
+	    if (err){
 	      return res.status(500).send(err)
-
-	    return res.status(200).send('Update was successful!');
+	    } else {
+				// console.log('Entry successfully updated apiController1 ----');
+	    	// flash does not work here
+				// req.flash('success', 'Entry successfully updated apiController1');
+	    	return res.status(200).send('Update was successful!');
+			}
 	  })
+				console.log('Entry successfully updated apiController3 ----');
+	    	// flash does not work here
+		req.flash('success', 'Entry successfully updated apiController3');
 	});
 
 	// CREATE NEW ENTRY
@@ -126,7 +135,11 @@ module.exports = function(app){
 		      }
 	      });
 	    } // end first else
+	    	console.log('Entry successfully deleted apiController1')
+				req.flash('success', 'Entry successfully deleted apiController1');
     }); // end err, entry function
+	    	console.log('Entry successfully deleted apiController2')
+			req.flash('success', 'Entry successfully deleted apiController2');
   }); // end .delete
 
 	// method to attemp to remove the entry from user NOT FUKING WORKING

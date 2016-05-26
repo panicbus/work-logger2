@@ -99,7 +99,8 @@
 				<th class="column-btns"></th>
 			</tr>
 		</thead>
-		<tr ng-repeat="entry in entries" ng-cloak>
+
+		<tr ng-repeat="entry in entries.slice().reverse()" ng-cloak>
 			<th class="column-index">{{ $index + 1 }}</th>
 			<!-- ng-click editEntry on tds to open the edit function when clicking on the cell -->
  			<td class="column-data" ng-click="editEntry($index)">
