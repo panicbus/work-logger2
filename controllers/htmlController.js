@@ -66,6 +66,7 @@ module.exports = function(app) {
 					}
 				})
 					// navigate to /table url - then node will run the app.get('/table') from above
+					req.flash('success', 'Entry successfully created!');
 					res.redirect('/table');
 			} // end first else statement
 		}); // end User.findById
