@@ -58,7 +58,8 @@ module.exports = function(app) {
 				};
 				Entries.create(newEntry, function(err, entry){
 					if (err) {
-						console.log(err)
+						console.log('Entry creation error: ' + err)
+						req.flash('error', 'There was an error creating your entry.')
 					} else {
 						user.entries.push(entry);
 						console.log('newEntry was pushed to DB')
