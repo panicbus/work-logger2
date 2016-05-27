@@ -155,11 +155,14 @@ input {
     }
     // the chart element
     #canvasEl {
-		    margin-left: -70px;
+		    margin-left: -75px;
 		    @include small-screen {
 		    	margin-left: -15px;
 		    }
 		}
+	}
+	.donut-subtitle {
+		font-size: 12px;
 	}
 	.row {
 		margin: 0 25px;

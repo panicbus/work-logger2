@@ -19,7 +19,7 @@ app.controller('chartController', ['$scope', '$http', '$resource', '$filter', fu
 		        monthlyPerHour += ((entry.payout + entry.tips) / (entry.hours));
 			    }
 			    var dividedTotal = monthlyPerHour / $scope.filteredMonthEntries.length;
-			    var n = Math.ceil(dividedTotal);
+			    var n = dividedTotal.toFixed(2);
 
 				  var donutData = [
 						{
@@ -37,6 +37,8 @@ app.controller('chartController', ['$scope', '$http', '$resource', '$filter', fu
 					var context = canvas.getContext('2d');
 					var myChart = new Chart(context);
 				  myChart.Doughnut(donutData, {segmentStrokeColor: 'rgba(255, 255, 255, 0)'});
+
+				  return n;
 				};
 			})
 		};

@@ -73,12 +73,13 @@
 	  	</div>
 	  	<div ng-controller="chartController as vm">
 		  	<div class="chart-container col-xs-12 col-md-3" ng-init="addChart()">
-					<div class="chart-label">
-						Earnings per hour this month
+					<div class="calc-label chart-label">
+						Earnings per hour this month:
 					</div>
 					<div class="col-xs-12">
-						<p>{{ getMonthlyPerHour() }}</p>
+						<p>${{ getMonthlyPerHour() }}</p>
 						<canvas id="canvasEl" ng-init="getEntriesForChart()"></canvas>
+						<p class="donut-subtitle">*Donut based on a $30/hr scale</p>
 					</div>
 				</div>
 			</div>
