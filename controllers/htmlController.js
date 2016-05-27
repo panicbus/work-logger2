@@ -46,7 +46,7 @@ module.exports = function(app) {
 				console.log(err);
 			} else {
 				// the constructor
-				var newEntry ={
+				var newEntry = {
 				  date: req.body.date,
 				  hours: req.body.hours,
 				  payout: req.body.payout,
@@ -58,7 +58,7 @@ module.exports = function(app) {
 				};
 				Entries.create(newEntry, function(err, entry){
 					if (err) {
-						console.log('Entry creation error: ' + err)
+						console.log('Hey, there was an entry creation error: ' + err)
 						req.flash('error', 'There was an error creating your entry.')
 					} else {
 						user.entries.push(entry);
