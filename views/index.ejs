@@ -40,23 +40,23 @@
 		</div>
 
 			<!-- logout is failing because of the currentUser thing -->
-			<form method="POST" action="/table/<%=currentUser._id%>">
+			<form id="form" method="POST" action="/table/<%=currentUser._id%>" validate>
 
 			  <div class="form-group">
 			    <label for="timeLogged">Hours logged</label>
-			    <input type="text" class="form-control" id="timeLogged" name="hours" ng-model="vm.hours" placeholder="Nubmer of hours">
+			    <input type="number" class="form-control" id="timeLogged" name="hours" ng-model="vm.hours" placeholder="Nubmer of hours" data-parsley-trigger="keyup" required>
 			  </div>
 				<div class="form-group">
 			    <label for="miles">Miles driven</label>
-			    <input type="text" class="form-control" id="miles" name="miles" ng-model="vm.miles" placeholder="Number of miles">
+			    <input type="number" class="form-control" id="miles" name="miles" ng-model="vm.miles" placeholder="Number of miles" data-parsley-trigger="keyup" required>
 			  </div>
 			  <div class="form-group">
 			    <label for="payout">Total payout</label>
-			    <input type="text" class="form-control" id="payout" name="payout" ng-model="vm.payout" placeholder="Payout amount">
+			    <input type="number" class="form-control" id="payout" name="payout" ng-model="vm.payout" placeholder="Payout amount" data-parsley-trigger="keyup" required>
 			  </div>
 			  <div class="form-group">
 			    <label for="tips">Total tips earned</label>
-			    <input type="text" class="form-control" id="tips" name="tips" ng-model="vm.tips" placeholder="Tips">
+			    <input type="number" class="form-control" id="tips" name="tips" ng-model="vm.tips" placeholder="Tips" data-parsley-trigger="keyup" required>
 			  </div>
 
 			  <button type="submit" id='submit' ng-model="newEntry" class="btn btn-primary">Submit</button>
@@ -77,9 +77,17 @@
 
 	<script src="javascripts/app.js"></script>
 	<script src="javascripts/fade.js"></script>
+	<script src="/users/javascripts/validate.js"></script>
 	<script src="javascripts/controllers/mainController.js"></script>
 
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+
+	<script type="text/javascript">
+		$(function(){
+		  $('#form').validate();
+		})
+	</script>
+
 
 </body>
 </html>

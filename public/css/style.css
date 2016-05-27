@@ -177,3 +177,7 @@ input {
   height: auto;
   margin: 0 auto;
   text-align: center; }
+
+/* validation errors */
+#form .error {
+  color: red; }
