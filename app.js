@@ -22,6 +22,10 @@ var config 					= require('./config'),
 		apiController 	= require('./controllers/apiController'),
 		htmlController 	= require('./controllers/htmlController');
 
+// KEYS FOR HEROKU
+var token = process.env['MONGO_TOKEN'];
+var secret = process.env['MONGO_SECRET'];
+
 var port = process.env.PORT || 3000;
 
 // var	indexRoutes = require('./routes/index'),
