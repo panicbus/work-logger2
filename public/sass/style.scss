@@ -1,22 +1,3 @@
-html, body {
-	padding: 0;
-	margin: 0;
-	font-family: 'Work Sans', sans-serif !important;
-}
-section {
-	padding: 15px 50px 30px;
-}
-a {
-  color: #777777 !important;
-}
-[ng\:cloak], [ng-cloak], .ng-cloak {
-  display: none !important;
-}
-input {
-  padding: 5px;
-  width: 100%;
-}
-
 /// MIXINS ///
 @mixin box-shadow($top, $left, $blur, $spread, $color) {
 	-webkit-box-shadow: $top $left $blur $spread $color;
@@ -46,11 +27,41 @@ input {
 }
 
 
+html, body {
+	padding: 0;
+	margin: 0;
+	font-family: 'Work Sans', sans-serif !important;
+}
+section {
+	padding: 15px 50px 30px;
+	@include small-screen {
+		padding: 10px 0;
+	}
+}
+a {
+  color: #777777 !important;
+}
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+input {
+  padding: 5px;
+  width: 100%;
+}
+
+
 /*/// NAV STUFF ///*/
 .navbar {
 	border-radius: 0 !important;
 	margin-bottom: 0 !important;
 	font-size: 20px;
+	&.navbar-default {
+		background-color: #ccc;
+		border-color: #ccc;
+	}
+	&.navbar-fixed-bottom {
+		height: 50px;
+	}
 }
 .navbar-right {
 	margin-right: 0 !important;
@@ -113,7 +124,9 @@ input {
 	margin: 40px auto;
 	@include small-screen {
 		padding: 20px 0;
-		margin: 20px auto;
+		margin: 0 auto;
+		width: 100%;
+		@include box-shadow(0, 0, 0, 0, rgba(0,0,0,0));
 	}
 	background: seagreen;
 	color: #fff;
@@ -232,6 +245,8 @@ input {
 	position: absolute;
 	top: 40px;
 	width: 100%;
+	display: block;
+	z-index: 1000;
 }
 .flash{
 	padding: 10px 0;
@@ -239,7 +254,14 @@ input {
 	height: auto;
 	margin: 0 auto;
 	text-align: center;
+	@include small-screen {
+		width: 90%;
+	}
 }
+.login-form {
+
+}
+
 
 /* validation errors */
 #form {

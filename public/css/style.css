@@ -5,6 +5,9 @@ html, body {
 
 section {
   padding: 15px 50px 30px; }
+  @media only screen and (max-width: 30em) {
+    section {
+      padding: 10px 0; } }
 
 a {
   color: #777777 !important; }
@@ -21,6 +24,11 @@ input {
   border-radius: 0 !important;
   margin-bottom: 0 !important;
   font-size: 20px; }
+  .navbar.navbar-default {
+    background-color: #ccc;
+    border-color: #ccc; }
+  .navbar.navbar-fixed-bottom {
+    height: 50px; }
 
 .navbar-right {
   margin-right: 0 !important;
@@ -85,7 +93,11 @@ input {
   @media only screen and (max-width: 30em) {
     .calculations-box {
       padding: 20px 0;
-      margin: 20px auto; } }
+      margin: 0 auto;
+      width: 100%;
+      -webkit-box-shadow: 0 0 0 0 transparent;
+      -moz-box-shadow: 0 0 0 0 transparent;
+      box-shadow: 0 0 0 0 transparent; } }
   .calculations-box p {
     text-align: center; }
   .calculations-box .calc-label {
@@ -171,7 +183,9 @@ input {
 .flash-container {
   position: absolute;
   top: 40px;
-  width: 100%; }
+  width: 100%;
+  display: block;
+  z-index: 1000; }
 
 .flash {
   padding: 10px 0;
@@ -179,6 +193,9 @@ input {
   height: auto;
   margin: 0 auto;
   text-align: center; }
+  @media only screen and (max-width: 30em) {
+    .flash {
+      width: 90%; } }
 
 /* validation errors */
 #form .error {
