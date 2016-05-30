@@ -25,8 +25,8 @@ input {
   margin-bottom: 0 !important;
   font-size: 20px; }
   .navbar.navbar-default {
-    background-color: #ccc;
-    border-color: #ccc; }
+    background-color: #f0f8ff;
+    border-color: #d0ffe3; }
   .navbar.navbar-fixed-bottom {
     height: 50px; }
 
@@ -41,7 +41,7 @@ input {
 
 .navbar-brand {
   font-size: 30px !important;
-  color: #000 !important; }
+  color: #333 !important; }
 
 .footer-title {
   padding-top: 15px; }
