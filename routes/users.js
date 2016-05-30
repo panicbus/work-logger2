@@ -47,9 +47,13 @@ router.post('/register', function(req, res) {
       console.log('user LOOKING FOR ID: ' + user._id);
       // uses the flash container in index.ejs
       req.flash('success', 'Welcome, ' + user.username + '!');
-
-      res.redirect('/');
-      // res.redirect('/users/' + user._id);
+      // req.login automatically logs user in after registering
+      req.login(user, function(err) {
+        if (err) {
+          console.log('The register err msg: ' + err);
+        }
+        return res.redirect('/users/' + user._id);
+      });
     }
   });
 });
