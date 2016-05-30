@@ -1,30 +1,31 @@
-var flash                 = require("connect-flash");
-var express  							= require('express');
-var	app 		 							= express();
-var	path 		 							= require('path');
-var	ejs 		 							= require('ejs');
-var cookieParser 					= require('cookie-parser');
-var bodyParser            = require('body-parser');
-var	nodemon  							= require('nodemon');
-var	mongoose 							= require('mongoose');
-var	passport              = require("passport");
-var LocalStrategy         = require("passport-local");
-var passportLocalMongoose = require("passport-local-mongoose");
-var methodOverride        = require("method-override");
-var session 							= require('express-session');
-var util 									= require('util');
-var favicon               = require('serve-favicon');
-// is this User needed here?
-var	User 			      = require('./models/user');
-
-var config 					= require('./config'),
-		setupController = require('./controllers/setupController'),
-		apiController 	= require('./controllers/apiController'),
-		htmlController 	= require('./controllers/htmlController');
-
 // KEYS FOR HEROKU
 var uname = process.env['MONGO_UNAME'];
 var psw = process.env['MONGO_PSW'];
+
+var flash                 = require("connect-flash");
+var express               = require('express');
+var app                   = express();
+var path                  = require('path');
+var ejs                   = require('ejs');
+var cookieParser          = require('cookie-parser');
+var bodyParser            = require('body-parser');
+var nodemon               = require('nodemon');
+var mongoose              = require('mongoose');
+var passport              = require("passport");
+var LocalStrategy         = require("passport-local");
+var passportLocalMongoose = require("passport-local-mongoose");
+var methodOverride        = require("method-override");
+var session               = require('express-session');
+var util                  = require('util');
+var favicon               = require('serve-favicon');
+// is this User needed here?
+var User            = require('./models/user');
+
+var config          = require('./config'),
+    setupController = require('./controllers/setupController'),
+    apiController   = require('./controllers/apiController'),
+    htmlController  = require('./controllers/htmlController');
+
 
 var port = process.env.PORT || 3000;
 
