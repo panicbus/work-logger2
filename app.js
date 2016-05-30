@@ -23,8 +23,8 @@ var config 					= require('./config'),
 		htmlController 	= require('./controllers/htmlController');
 
 // KEYS FOR HEROKU
-var token = process.env['MONGO_TOKEN'];
-var secret = process.env['MONGO_SECRET'];
+var uname = process.env['MONGO_UNAME'];
+var psw = process.env['MONGO_PSW'];
 
 var port = process.env.PORT || 3000;
 
