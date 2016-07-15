@@ -85,7 +85,16 @@ input {
   padding-bottom: 30px; }
 
 .form-container {
-  padding-bottom: 50px; }
+  padding-bottom: 70px; }
+  .form-container input {
+    height: 60px !important;
+    font-size: 25px !important; }
+  .form-container label {
+    font-size: 30px !important; }
+  .form-container button {
+    margin-top: 15px;
+    font-size: 30px !important;
+    padding: 10px 20px !important; }
 
 .to-table {
   font-size: 20px;
