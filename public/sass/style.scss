@@ -97,6 +97,10 @@ input {
 }
 
 /*// WELCOME SPLASH // */
+.login-title {
+	text-align: center;
+}
+
 .welcome-splash {
 	text-align: center;
 	width: 60%;
@@ -114,6 +118,19 @@ input {
 			color: #888;
 		}
 	}
+}
+
+// FORM PAGE
+.logged-in-title {
+	padding-bottom: 30px;
+}
+.form-container {
+	padding-bottom: 50px;
+}
+.to-table {
+	font-size: 20px;
+	margin-top: -35px;
+	clear: both;
 }
 
 /*// TABLE PAGE //*/
@@ -154,11 +171,16 @@ input {
 	}
 	.all-time.tips, .all-time.earnings {
 		p:last-child {
+			@include small-screen {
 				margin-top: 35px;
+			}
 			@include large-screen {
 				margin-top: 0;
 			}
 		}
+	}
+	.miles-box {
+		padding-top: 10px
 	}
 	.chart-container {
     // transform: translateY(25%);
@@ -220,10 +242,6 @@ input {
 
 .back-link {
 	padding: 0 15px 80px 15px;
-}
-.to-table {
-	font-size: 20px;
-	margin-top: -35px;
 }
 .right-option {
 	float: right;
