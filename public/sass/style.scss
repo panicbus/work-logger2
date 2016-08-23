@@ -58,10 +58,8 @@ input {
 	border-radius: 0 !important;
 	margin-bottom: 0 !important;
 	font-size: 20px;
-	&.navbar-default {
-		background-color: $splashgreen !important;
-		border-color: $splashgreen !important;
-	}
+	background-color: $splashgreen !important;
+	border-color: $splashgreen !important;
 	&.navbar-fixed-bottom {
 		height: 50px;
 	}
@@ -97,6 +95,9 @@ input {
 }
 .login-lable {
 	padding: 0 15px;
+}
+.register-form, .login-form {
+	padding-top: 75px;
 }
 
 /*// WELCOME SPLASH // */
@@ -134,7 +135,7 @@ input {
 	padding-bottom: 30px;
 }
 .form-container {
-	padding: 50px 70px;
+	padding: 0 70px 50px;
 	input {
 		height: 45px !important;
 		font-size: 22px !important;
@@ -159,7 +160,7 @@ input {
 .calculations-box {
 	width: 80%;
 	padding: 20px;
-	margin: 100px auto 40px;
+	margin: 40px auto;
 	@include small-screen {
 		padding: 20px 0;
 		margin: 0 auto;

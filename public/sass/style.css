@@ -23,10 +23,9 @@ input {
 .navbar {
   border-radius: 0 !important;
   margin-bottom: 0 !important;
-  font-size: 20px; }
-  .navbar.navbar-default {
-    background-color: #bbeeaa !important;
-    border-color: #bbeeaa !important; }
+  font-size: 20px;
+  background-color: #bbeeaa !important;
+  border-color: #bbeeaa !important; }
   .navbar.navbar-fixed-bottom {
     height: 50px; }
 
@@ -59,6 +58,9 @@ input {
 .login-lable {
   padding: 0 15px; }
 
+.register-form, .login-form {
+  padding-top: 75px; }
+
 /*// WELCOME SPLASH // */
 .splash-container {
   transform: translateY(-50%);
@@ -88,7 +90,7 @@ input {
   padding-bottom: 30px; }
 
 .form-container {
-  padding: 50px 70px; }
+  padding: 0 70px 50px; }
   .form-container input {
     height: 45px !important;
     font-size: 22px !important; }
@@ -108,7 +110,7 @@ input {
 .calculations-box {
   width: 80%;
   padding: 20px;
-  margin: 100px auto 40px;
+  margin: 40px auto;
   background: seagreen;
   color: #fff;
   font-size: 18px;
