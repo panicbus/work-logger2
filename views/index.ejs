@@ -25,17 +25,19 @@
 	<section>
 
 		<% if (!currentUser) { %>
-			<h1 class="login-title">Log yo Postmates</h1>
-			<div class="welcome-splash">
-				<p>Time to get organized - start keeping track of all that Postmates income you've been making.</p>
-				<p><a href="/login">Log in</a> now!</p>
-				<p>Not a user yet? <a href="/register">Register now</a>.</p>
+			<div class="splash-container">
+				<h1 class="login-title">Log yo Postmates</h1>
+				<div class="welcome-splash">
+					<p>Time to get organized - start keeping track of all that Postmates income you've been making.</p>
+					<p><a href="/login">Log in</a> now!</p>
+					<p>Not a user yet? <a href="/register">Register now</a>.</p>
+				</div>
 			</div>
 		<% }; %>
 
 
 		<% if (currentUser) { %>
-		<div class="form-container col-md-5 col-xs-12">
+		<div class="form-container col-xs-12">
 			<h1 class="logged-in-title">Log yo Postmates</h1>
 			<div class="to-table navbar-link right-option">
 				<a href="/table">View your log</a>

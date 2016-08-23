@@ -4,7 +4,7 @@ html, body {
   font-family: 'Work Sans', sans-serif !important; }
 
 section {
-  padding: 15px 50px 30px; }
+  padding: 15px 0 30px; }
   @media only screen and (max-width: 30em) {
     section {
       padding: 10px 0; } }
@@ -25,14 +25,14 @@ input {
   margin-bottom: 0 !important;
   font-size: 20px; }
   .navbar.navbar-default {
-    background-color: #f0f8ff;
-    border-color: #d0ffe3; }
+    background-color: #bbeeaa !important;
+    border-color: #bbeeaa !important; }
   .navbar.navbar-fixed-bottom {
     height: 50px; }
 
 .navbar-right {
   margin-right: 0 !important;
-  padding: 23px 15px 0 0; }
+  padding: 20px 15px 0 0; }
   .navbar-right a {
     color: #777 !important; }
 
@@ -60,6 +60,12 @@ input {
   padding: 0 15px; }
 
 /*// WELCOME SPLASH // */
+.splash-container {
+  transform: translateY(-50%);
+  top: 50%;
+  position: absolute;
+  width: 100%; }
+
 .login-title {
   text-align: center; }
 
@@ -70,10 +76,7 @@ input {
   color: #666;
   font-size: 22px;
   padding: 20px;
-  margin: 30px auto;
-  -webkit-box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.35);
-  -moz-box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.35);
-  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.35); }
+  margin: 30px auto; }
   .welcome-splash a {
     transition: color 0.3s ease;
     color: #666;
@@ -85,12 +88,12 @@ input {
   padding-bottom: 30px; }
 
 .form-container {
-  padding-bottom: 70px; }
+  padding: 50px 70px; }
   .form-container input {
-    height: 60px !important;
-    font-size: 25px !important; }
+    height: 45px !important;
+    font-size: 22px !important; }
   .form-container label {
-    font-size: 30px !important; }
+    font-size: 26px !important; }
   .form-container button {
     margin-top: 15px;
     font-size: 30px !important;
@@ -105,7 +108,7 @@ input {
 .calculations-box {
   width: 80%;
   padding: 20px;
-  margin: 40px auto;
+  margin: 100px auto 40px;
   background: seagreen;
   color: #fff;
   font-size: 18px;
@@ -146,11 +149,12 @@ input {
   .calculations-box .chart-container .chart-label {
     text-align: center;
     font-size: 20px; }
-  .calculations-box .chart-container #canvasEl {
-    margin-left: -75px; }
-    @media only screen and (max-width: 30em) {
-      .calculations-box .chart-container #canvasEl {
-        margin-left: -15px; } }
+  .calculations-box .chart-container .canvasEl {
+    margin: 10px auto;
+    display: block; }
+    @media only screen and (min-width: 40em) {
+      .calculations-box .chart-container .canvasEl {
+        margin-left: -70px; } }
   .calculations-box .donut-subtitle {
     font-size: 12px; }
   .calculations-box .row {

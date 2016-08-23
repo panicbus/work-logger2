@@ -78,7 +78,9 @@
 					</div>
 					<div class="col-xs-12">
 						<p>${{ getMonthlyPerHour() }}</p>
-						<canvas id="canvasEl" ng-init="getEntriesForChart()"></canvas>
+						<div class="canvas-container canvasEl">
+							<canvas id="canvasEl" ng-init="getEntriesForChart()"></canvas>
+						</div>
 						<p class="donut-subtitle">*Donut based on a $30/hr scale</p>
 					</div>
 				</div>

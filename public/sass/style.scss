@@ -1,3 +1,6 @@
+// VARIABLES //
+$splashgreen: #bbeeaa;
+
 /// MIXINS ///
 @mixin box-shadow($top, $left, $blur, $spread, $color) {
 	-webkit-box-shadow: $top $left $blur $spread $color;
@@ -33,7 +36,7 @@ html, body {
 	font-family: 'Work Sans', sans-serif !important;
 }
 section {
-	padding: 15px 50px 30px;
+	padding: 15px 0 30px;
 	@include small-screen {
 		padding: 10px 0;
 	}
@@ -56,8 +59,8 @@ input {
 	margin-bottom: 0 !important;
 	font-size: 20px;
 	&.navbar-default {
-		background-color: #f0f8ff;
-		border-color: #d0ffe3;
+		background-color: $splashgreen !important;
+		border-color: $splashgreen !important;
 	}
 	&.navbar-fixed-bottom {
 		height: 50px;
@@ -65,7 +68,7 @@ input {
 }
 .navbar-right {
 	margin-right: 0 !important;
-	padding: 23px 15px 0 0;
+	padding: 20px 15px 0 0;
 	a {
 		color: #777 !important;
 	}
@@ -97,6 +100,13 @@ input {
 }
 
 /*// WELCOME SPLASH // */
+.splash-container {
+	transform: translateY(-50%);
+	top: 50%;
+	position: absolute;
+	width: 100%;
+}
+
 .login-title {
 	text-align: center;
 }
@@ -109,7 +119,6 @@ input {
 	font-size: 22px;
 	padding: 20px;
 	margin: 30px auto;
-	@include box-shadow(0, 3px, 10px, 0, rgba(0,0,0,0.35));
 	a {
 		transition: color 0.3s ease;
 		color: #666;
@@ -125,13 +134,13 @@ input {
 	padding-bottom: 30px;
 }
 .form-container {
-	padding-bottom: 70px;
+	padding: 50px 70px;
 	input {
-		height: 60px !important;
-		font-size: 25px !important;
+		height: 45px !important;
+		font-size: 22px !important;
 	}
 	label {
-		font-size: 30px !important;
+		font-size: 26px !important;
 	}
 	button {
 		margin-top: 15px;
@@ -150,7 +159,7 @@ input {
 .calculations-box {
 	width: 80%;
 	padding: 20px;
-	margin: 40px auto;
+	margin: 100px auto 40px;
 	@include small-screen {
 		padding: 20px 0;
 		margin: 0 auto;
@@ -201,11 +210,12 @@ input {
     	font-size: 20px;
     }
     // the chart element
-    #canvasEl {
-		    margin-left: -75px;
-		    @include small-screen {
-		    	margin-left: -15px;
-		    }
+		.canvasEl {
+			margin: 10px auto;
+			display: block;
+			@include medium-up {
+				margin-left: -70px;
+	    }
 		}
 	}
 	.donut-subtitle {
@@ -244,14 +254,10 @@ input {
 	@include small-screen {
 		display: none;
 	}
-	// @include medium-screen {
-
-	// }
 }
 .delete-btn {
 	margin-right: 10px;
 }
-
 .back-link {
 	padding: 0 15px 80px 15px;
 }
@@ -292,14 +298,10 @@ input {
 
 }
 
-
 /* validation errors */
 #form {
 	.error {
 	  color: red;
 	}
 }
-
-
-
 
